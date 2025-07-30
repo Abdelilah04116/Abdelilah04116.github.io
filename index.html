@@ -1,0 +1,3664 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abdelilah Ourti - AI Engineer specializing in Deep Learning, Computer Vision, and Machine Learning. View my portfolio of innovative AI projects.">
+    <meta name="keywords" content="AI Engineer, Deep Learning, Computer Vision, Machine Learning, Neural Networks, Python, TensorFlow, PyTorch">
+    <meta name="author" content="Abdelilah Ourti">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Abdelilah Ourti | AI Engineer Portfolio">
+    <meta property="og:description" content="AI Engineer specializing in Deep Learning, Computer Vision, and Machine Learning. View my innovative AI projects.">
+    <meta property="og:image" content="assets/images/hero-img1.png">
+    <meta property="og:url" content="https://your-portfolio-url.com">
+    <meta name="theme-color" content="#ffffff">
+    <title>Abdelilah Ourti | AI Engineer Portfolio</title>
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            
+            /* Light theme colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --hover-bg: #f1f5f9;
+            --card-bg: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            scroll-behavior: smooth;
+        }
+        
+        body.dark {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border-color: #334155;
+            --hover-bg: #1e293b;
+            --card-bg: #1e293b;
+        }
+
+        /* Enhanced Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.025em;
+        }
+
+        /* Typed.js cursor styling */
+        .typed-cursor {
+            font-size: inherit;
+            line-height: inherit;
+            vertical-align: middle;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        /* Enhanced Animations */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 8s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Enhanced Card Hover Effects */
+        .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px8 -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Enhanced Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .btn-primary:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* Enhanced Timeline */
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .timeline-dot:hover::before {
+            opacity: 0.2;
+        }
+
+        /* Responsive Design Improvements */
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+
+            .hero-content {
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+
+            .hero-image {
+                margin-top: 2rem;
+            }
+
+            .skill-grid {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+            }
+
+            .project-card {
+                margin-bottom: 2rem;
+            }
+
+            .testimonial-card {
+                min-width: 100%;
+                margin: 0 0.5rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--bg-primary);
+                padding: 2rem;
+                transition: 0.3s;
+                z-index: 1000;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+
+            .skill-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                min-width: calc(50% - 1rem);
+                margin: 0 0.5rem;
+            }
+
+            .hero-content {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+            
+            .skill-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .testimonial-card {
+                min-width: calc(33.333% - 1rem);
+                margin: 0 0.5rem;
+            }
+
+            .hero-content {
+                padding: 4rem 3rem;
+            }
+        }
+
+        /* Common Responsive Utilities */
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .skill-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .testimonial-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 640px) {
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (min-width: 641px) {
+            p {
+                font-size: 1.125rem;
+                line-height: 1.7;
+            }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            margin-bottom: 3rem;
+        }
+        
+        .subtitle {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .skill-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .skill-card img {
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .skill-card .bg-gradient-to-r {
+            background-size: 200% 100%;
+            animation: gradient-shift 2s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0.5rem;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-card img {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .project-card .tag {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .tag {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .gradient-border {
+            position: relative;
+        }
+        
+        .gradient-border:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0.5rem;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 8s ease infinite;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .contact-form button:hover::after {
+            transform: translateX(100%);
+        }
+
+        .social-icon {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icon:hover::before {
+            opacity: 0.1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+            
+            .hero-section {
+                padding-top: 6rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flex-col {
+                flex-direction: column;
+            }
+            
+            .lg\:w-1\/2 {
+                width: 100%;
+            }
+            
+            .text-4xl {
+                font-size: 1.875rem;
+            }
+            
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+            
+            .p-8 {
+                padding: 1.5rem;
+            }
+            
+            .gap-12 {
+                gap: 2rem;
+            }
+            
+            .mb-12 {
+                margin-bottom: 2rem;
+            }
+            
+            .space-y-6 {
+                gap: 1rem;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .lg\:w-1\/2 {
+                width: 100%;
+            }
+            
+            .text-4xl {
+                font-size: 2.25rem;
+            }
+            
+            .text-3xl {
+                font-size: 1.875rem;
+            }
+            
+            .gap-12 {
+                gap: 3rem;
+            }
+        }
+        
+        /* Custom cursor styles */
+        .custom-cursor,
+        .custom-cursor-dot {
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+        }
+
+        .custom-cursor-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+        }
+
+        /* Hide custom cursor on mobile and tablet devices */
+        @media (max-width: 1024px) {
+            .custom-cursor,
+            .custom-cursor-dot {
+                display: none;
+            }
+            
+            /* Reset cursor styles for touch devices */
+            * {
+                cursor: auto !important;
+            }
+            
+            /* Add touch feedback for interactive elements */
+            a, button, [role="button"], input, select, textarea {
+                -webkit-tap-highlight-color: rgba(99, 102, 241, 0.2);
+                touch-action: manipulation;
+            }
+        }
+
+        /* Specific adjustments for tablets (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            a:hover, button:hover, [role="button"]:hover {
+                transform: scale(1.02);
+                transition: transform 0.2s ease;
+            }
+            
+            .interactive-element {
+                transition: all 0.2s ease;
+            }
+            
+            .interactive-element:active {
+                transform: scale(0.98);
+                opacity: 0.8;
+            }
+        }
+
+        /* Specific adjustments for phones (max-width: 767px) */
+        @media (max-width: 767px) {
+            a:active, button:active, [role="button"]:active {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+        }
+        
+        .profile-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .profile-image:hover::before {
+            opacity: 0.1;
+        }
+        
+        .profile-image img {
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-hover-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .btn-hover-effect:hover::after {
+            transform: translateX(100%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+        }
+        
+        @keyframes float-delayed {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -20px); }
+        }
+        
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .animate-float-delayed {
+            animation: float-delayed 8s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn-hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-hover-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .btn-hover-effect:hover::after {
+            transform: translateX(100%);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add these styles to your existing CSS */
+        .testimonials-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            gap: 2rem;
+            will-change: transform;
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-control {
+            position: absolute;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-control.prev {
+            left: 1rem;
+        }
+
+        .carousel-control.next {
+            right: 1rem;
+        }
+
+        .testimonials-carousel:hover .carousel-control {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-control {
+                opacity: 1;
+            }
+        }
+
+        .testimonials-wrapper {
+            position: relative;
+        }
+
+        .testimonials-container {
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .testimonial-card {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .testimonial-card {
+                width: 100%;
+            }
+        }
+
+        /* Update the testimonial card styles */
+        .testimonial-card {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .testimonial-card > div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .testimonial-card .text-gray-600 {
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: 200px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+        }
+
+        .testimonial-card .text-gray-600::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .testimonial-card .text-gray-600::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .testimonial-card .text-gray-600::-webkit-scrollbar-thumb {
+            background-color: rgba(156, 163, 175, 0.5);
+            border-radius: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .testimonial-card {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .testimonial-card {
+                width: 100%;
+            }
+        }
+
+        /* Update testimonial styles */
+        .testimonial-card {
+            height: 100%;
+            min-height: 450px;
+        }
+
+        .testimonial-card .text-gray-300 {
+            line-height: 1.6;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+            padding-right: 10px;
+        }
+
+        .testimonial-card .text-gray-300::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .testimonial-card .text-gray-300::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .testimonial-card .text-gray-300::-webkit-scrollbar-thumb {
+            background-color: rgba(156, 163, 175, 0.3);
+            border-radius: 20px;
+        }
+
+        .testimonials-track {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (max-width: 1024px) {
+            .testimonial-card {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .testimonial-card {
+                width: 100%;
+            }
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .testimonial-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-track {
+                scroll-padding-left: 1.5rem;
+                padding-left: 1.5rem;
+            }
+        }
+
+        .testimonials-track {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        .testimonials-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card .text-gray-300 {
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 144px;
+        }
+
+        @media (hover: hover) {
+            .testimonial-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-track {
+                scroll-padding-left: 1.5rem;
+                padding-left: 1.5rem;
+            }
+            
+            .testimonial-card .text-gray-300 {
+                min-height: 120px;
+            }
+        }
+
+        /* Button Container Styles */
+        .hero-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .hero-buttons::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .hero-buttons a, 
+        .hero-buttons button {
+            flex-shrink: 0;
+            white-space: nowrap;
+            min-width: fit-content;
+            padding: 0.75rem 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero-buttons {
+                justify-content: flex-start;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            .hero-buttons a,
+            .hero-buttons button {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Button styles for single line layout */
+        .skill-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+        }
+
+        .skill-buttons::-webkit-scrollbar {
+            display: none;
+        }
+
+        .skill-buttons button {
+            flex: 0 0 auto;
+            white-space: nowrap;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 30px;
+        }
+
+        @media (max-width: 640px) {
+            .skill-buttons {
+                padding: 0 1rem;
+            }
+            
+            .skill-buttons button {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Update the existing button container styles */
+        .flex.flex-wrap.gap-4.justify-center.mb-8 {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .flex.flex-wrap.gap-4.justify-center.mb-8::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Ensure buttons stay in a single line */
+        .skill-category-buttons {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .skill-category-buttons button {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: fit-content;
+        }
+
+        @media (max-width: 640px) {
+            .skill-category-buttons {
+                gap: 0.5rem;
+                padding: 0 1rem 1rem 1rem;
+            }
+
+            .skill-category-buttons button {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Add these styles to your existing CSS */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .project-card {
+                scroll-snap-align: start;
+            }
+            
+            .flex.gap-6 {
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 1rem;
+            }
+        }
+
+        /* Update section spacing */
+        .section {
+            padding: 3rem 0; /* Reduced from 6rem */
+        }
+
+        @media (max-width: 640px) {
+            .section {
+                padding: 2rem 0; /* Even smaller padding on mobile */
+            }
+            
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+            
+            .mb-12 {
+                margin-bottom: 1.5rem;
+            }
+            
+            .gap-12 {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        /* Improved responsive grid layouts */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Optimize spacing for text elements */
+        .text-center {
+            margin-bottom: 1.5rem;
+        }
+
+        .subtitle {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Adjust card spacing */
+        .project-card, .testimonial-card, .skill-card {
+            margin-bottom: 1rem;
+        }
+
+        /* Optimize section margins */
+        section:not(:first-child) {
+            margin-top: -1px; /* Remove double borders between sections */
+        }
+
+        /* Responsive container max-width */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Optimize spacing for mobile navigation */
+        .nav-menu {
+            padding: 1rem;
+        }
+
+        /* Adjust button spacing */
+        .btn-primary, .btn-outline {
+            padding: 0.75rem 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .btn-primary, .btn-outline {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Optimize form spacing */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        /* Adjust testimonials spacing */
+        .testimonials-track {
+            gap: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .testimonials-track {
+                gap: 0.75rem;
+            }
+        }
+
+        /* Optimize footer spacing */
+        footer {
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 640px) {
+            footer {
+                padding: 1.5rem 0;
+            }
+        }
+
+        /* Improve spacing for skill buttons */
+        .skill-buttons {
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Optimize hero section spacing */
+        #home {
+            min-height: 90vh;
+        }
+
+        /* Adjust timeline spacing */
+        .timeline-item {
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .timeline-item {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Optimize card layouts */
+        .card {
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Improve spacing for contact section */
+        .contact-form input,
+        .contact-form textarea {
+            margin-bottom: 1rem;
+        }
+
+        /* Optimize portfolio grid */
+        .portfolio-grid {
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Custom padding with negative margin */
+        .testimonials-container.px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin-bottom: -35%;
+        }
+
+        @media (max-width: 640px) {
+            .testimonials-container.px-2 {
+                margin-bottom: -25%; /* Slightly less negative margin on mobile */
+            }
+        }
+
+        /* Ensure proper spacing for the container */
+        .testimonials-wrapper {
+            position: relative;
+            max-width: 7xl;
+            padding-bottom: 35%; /* Add padding to compensate for negative margin */
+        }
+
+        @media (max-width: 640px) {
+            .testimonials-wrapper {
+                padding-bottom: 25%;
+            }
+        }
+
+        /* Custom max-width with negative margin */
+        .max-w-7xl {
+            max-width: 80rem;
+            margin-bottom: -25%;
+        }
+
+        @media (max-width: 640px) {
+            .max-w-7xl {
+                margin-bottom: -20%; /* Slightly less negative margin on mobile */
+            }
+        }
+
+        /* Ensure proper spacing for parent container */
+        #testimonials {
+            padding-bottom: 25%; /* Add padding to compensate for negative margin */
+        }
+
+        @media (max-width: 640px) {
+            #testimonials {
+                padding-bottom: 20%;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div id="app">
+        <!-- Preloader -->
+        <div class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900 transition-all duration-500" v-if="!isLoaded">
+            <div class="text-center">
+                <div class="w-24 h-24 mx-auto mb-6">
+                    <img src="assets/images/favicon.gif" alt="Loading" class="w-full h-full object-contain">
+                </div>
+                <div class="w-64 h-1 bg-gray-200 rounded-full overflow-hidden mx-auto">
+                    <div class="h-full bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" :style="{width: loadingProgress + '%'}"></div>
+                </div>
+                <p class="mt-4 text-gray-600 dark:text-gray-300">Loading Portfolio...</p>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm transition-all duration-300" :class="{'py-2': !isHeaderBig, 'py-4': isHeaderBig}">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
+                        <a href="#" class="flex items-center">
+                            <span class="text-blue-500">Ourti</span>
+                        </a>
+                    </div>
+
+                    <!-- Navigation -->
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a v-for="link in navLinks" :href="link.url" 
+                           class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors"
+                           :class="{'text-blue-500 dark:text-blue-400': currentSection === link.url.substring(1)}">
+                            {{ link.title[currentLanguage] }}
+                        </a>
+                    </nav>
+
+                    <!-- Theme Toggle & Mobile Menu Button -->
+                    <div class="flex items-center space-x-4">
+                        <button @click="toggleTheme" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                            <i :class="{'fas fa-moon': isDarkMode, 'fas fa-sun': !isDarkMode}" class="text-lg"></i>
+                        </button>
+                        
+                        <button @click="toggleLanguage" 
+                                class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                            <span class="text-sm font-medium">{{ currentLanguage === 'en' ? 'FR' : 'EN' }}</span>
+                        </button>
+                        
+                        <button @click="toggleMobileMenu" class="md:hidden w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="fixed inset-0 z-30 bg-white dark:bg-gray-900 transform transition-all duration-300 ease-in-out" 
+             :class="{'translate-x-0': isMobileMenuOpen, '-translate-x-full': !isMobileMenuOpen}"
+             v-if="isMobileMenuOpen">
+            <div class="container mx-auto px-6 py-20">
+                <button @click="toggleMobileMenu" class="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <nav class="flex flex-col space-y-6">
+                    <a v-for="link in navLinks" :href="link.url" 
+                       class="text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                       @click="toggleMobileMenu">
+                        {{ link.title[currentLanguage] }}
+                    </a>
+                </nav>
+                
+                <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+                    <h3 class="text-lg font-medium text-gray-600 dark:text-gray-400 mb-4">{{ currentLanguage === 'en' ? 'Contact Info' : 'Coordonnées' }}</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-blue-500 mr-3"></i>
+                            <a href="mailto:AbdelilahOurti2018@gmail.com" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                                AbdelilahOurti2018@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-blue-500 mr-3"></i>
+                            <a href="tel:+212655798315" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                                +212 655 798 315
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-500 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">{{ currentLanguage === 'en' ? 'Morocco' : 'Maroc' }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-16">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-emerald-500/10 dark:from-blue-900/20 dark:to-emerald-900/20 animate-pulse-slow"></div>
+            
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-float"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl animate-float-delayed"></div>
+            </div>
+            
+            <!-- Custom cursor elements -->
+            <div class="custom-cursor"></div>
+            <div class="custom-cursor-dot"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                    <!-- Hero Text -->
+                    <div class="w-full lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left animate-fade-in-up">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl opacity-20 dark:opacity-30 animate-gradient"></div>
+                            <div class="relative">
+                                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 lg:mb-6">
+                                    <span class="hero-gradient animate-gradient">Abdelilah Ourti</span>
+                                    <br>
+                                    <div id="typed-text" class="text-xl sm:text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mt-2 inline-block"></div>
+                                </h1>
+                                <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6 lg:mb-8 max-w-lg mx-auto lg:mx-0">
+                                    {{ currentLanguage === 'en' ? 'I build intelligent systems that solve complex problems using cutting-edge AI and machine learning technologies.' : 'Je construis des systèmes intelligents qui résolvent des problèmes complexes en utilisant les technologies d\'IA et d\'apprentissage automatique de pointe.' }}
+                                </p>
+                                <!-- Hero Section Buttons -->
+                                <div class="hero-buttons">
+                                    <a href="#contact" class="bg-[#6366F1] hover:bg-[#4F46E5] text-white px-8 py-3 rounded-[30px] font-medium transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center w-[140px]">
+                                        {{ currentLanguage === 'en' ? 'Hire Me' : 'Engagez-moi' }}
+                                    </a>
+                                    <a href="#portfolio" class="bg-transparent border-2 border-[#6366F1] text-[#6366F1] hover:bg-[#6366F1] hover:text-white px-8 py-3 rounded-[30px] font-medium transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
+                                        {{ currentLanguage === 'en' ? 'View Projects' : 'Voir les Projets' }}
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1_y0SVKegDGpkpAXhJushHhQLeRTfHxtu/view?usp=sharing" download class="bg-transparent border-2 border-[#6366F1] text-[#6366F1] hover:bg-[#6366F1] hover:text-white px-8 py-3 rounded-[30px] font-medium transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center" target="_blank">
+                                        {{ currentLanguage === 'en' ? 'Download CV' : 'Télécharger CV' }}
+                                    </a>
+                                    <a href="https://github.com/Abdelilah04116" target="_blank" class="bg-transparent border-2 border-[#6366F1] text-[#6366F1] hover:bg-[#6366F1] hover:text-white px-8 py-3 rounded-[30px] font-medium transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hero Image -->
+                    <div class="w-full lg:w-1/2 flex justify-center animate-fade-in-up" style="animation-delay: 0.2s">
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <div class="profile-image w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-md h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px]">
+                            <img src="assets/images/Ourti-.png" alt="Abdelilah Ourti" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section bg-gray-50 dark:bg-gray-900/50 -mt-1">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <!-- About Image -->
+                    <div class="lg:w-1/2 hidden lg:block">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl blur-xl opacity-20 dark:opacity-30"></div>
+                            <img src="assets/images/Ourti-.png" alt="About Abdelilah" class="relative rounded-2xl w-full max-w-md mx-auto">
+                        </div>
+                    </div>
+                    
+                    <!-- About Text -->
+                    <div class="lg:w-1/2">
+                        <span class="subtitle">{{ currentLanguage === 'en' ? 'About Me' : 'À Propos de Moi' }}</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                            {{ currentLanguage === 'en' ? 'Innovating with AI to' : 'Innover avec l\'IA pour' }}
+                            <span class="text-blue-500 dark:text-blue-400">{{ currentLanguage === 'en' ? 'Solve Real-World Problems' : 'Résoudre des Problèmes Réels' }}</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            {{ currentLanguage === 'en' ? 
+                                'Hi! I\'m Abdelilah Ourti, an AI Engineering student specializing in Machine Learning and Data Science. With a strong foundation in mathematics and computer science, I\'m passionate about developing intelligent systems that make a real impact.' : 
+                                'Bonjour! Je suis Abdelilah Ourti, étudiant en ingénierie IA spécialisé en Machine Learning et Data Science. Avec une solide formation en mathématiques et en informatique, je suis passionné par le développement de systèmes intelligents qui ont un impact réel.' }}
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-8">
+                            {{ currentLanguage === 'en' ? 
+                                'My expertise spans across deep learning, natural language processing, computer vision, and data analysis. I thrive on transforming complex problems into elegant AI solutions through innovative thinking and technical excellence.' : 
+                                'Mon expertise s\'étend au deep learning, au traitement du langage naturel, à la vision par ordinateur et à l\'analyse de données. J\'excelle à transformer des problèmes complexes en solutions IA élégantes grâce à une pensée innovante et une excellence technique.' }}
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-500 mr-4">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-gray-200">{{ currentLanguage === 'en' ? 'Education' : 'Formation' }}</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">ENIAD, {{ currentLanguage === 'en' ? 'AI Engineering' : 'Ingénierie IA' }}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-500 mr-4">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-gray-200">{{ currentLanguage === 'en' ? 'Experience' : 'Expérience' }}</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">1+ {{ currentLanguage === 'en' ? 'Years' : 'Ans' }}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-purple-500 mr-4">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-gray-200">{{ currentLanguage === 'en' ? 'Projects' : 'Projets' }}</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">47+ {{ currentLanguage === 'en' ? 'Completed' : 'Réalisés' }}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-amber-500/10 dark:bg-amber-500/20 flex items-center justify-center text-amber-500 mr-4">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-gray-200">{{ currentLanguage === 'en' ? 'Clients' : 'Clients' }}</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">30+ {{ currentLanguage === 'en' ? 'Happy Clients' : 'Clients Satisfaits' }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--<div class="flex flex-wrap gap-4">
+                            <a href="#contact" class="btn-primary px-8 py-3 rounded-full font-medium">{{ currentLanguage === 'en' ? 'Hire Me' : 'Engagez-moi' }}</a>
+                            <a href="https://drive.google.com/file/d/171NNyZHynXGDVgMLGyGQm8pcyubZNP5F/view?usp=sharing" download class="btn-outline px-8 py-3 rounded-full font-medium">{{ currentLanguage === 'en' ? 'Download CV' : 'Télécharger CV' }}</a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section bg-white dark:bg-gray-800 -mt-1">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 lg:mb-12 animate-fade-in-up">
+                    <span class="subtitle">{{ currentLanguage === 'en' ? 'Experience' : 'Expérience' }}</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        {{ currentLanguage === 'en' ? 'AI Engineering' : 'Ingénierie IA' }} <span class="text-blue-500 dark:text-blue-400">{{ currentLanguage === 'en' ? 'Journey' : 'Parcours' }}</span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        {{ currentLanguage === 'en' ? 'My professional journey in AI and deep learning, showcasing key projects and achievements.' : 'Mon parcours professionnel en IA et deep learning, mettant en avant les projets clés et les réalisations.' }}
+                    </p>
+                    <button @click="showAITimeline = true" 
+                            class="mt-4 inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                        <i class="fas fa-history mr-2"></i>
+                        {{ currentLanguage === 'en' ? 'View Detailed AI Journey' : 'Voir le Parcours IA Détaillé' }}
+                    </button>
+                </div>
+
+                <!-- AI Journey Timeline Modal -->
+                <div v-if="showAITimeline" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="relative">
+                            <button @click="showAITimeline = false" 
+                                    class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="p-6 lg:p-8">
+                                <h3 class="text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">
+                                    {{ currentLanguage === 'en' ? 'AI Engineering Journey' : 'Parcours en Ingénierie IA' }}
+                                </h3>
+                                
+                                <div class="relative">
+                                    <!-- Timeline Line -->
+                                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full"></div>
+                                    
+                                    <!-- Timeline Items -->
+                                    <div class="space-y-8">
+                                        <div v-for="(milestone, index) in aiJourney" 
+                                             class="relative pl-8 group">
+                                            <!-- Timeline Dot -->
+                                            <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2 group-hover:scale-150 transition-transform"></div>
+                                            
+                                            <!-- Milestone Card -->
+                                            <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                                                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                                    <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200">{{ milestone.year }}</h4>
+                                                    <span class="text-sm lg:text-base text-blue-500 dark:text-blue-400 font-medium">{{ milestone.title[currentLanguage] }}</span>
+                                                </div>
+                                                
+                                                <div class="text-sm lg:text-base text-gray-600 dark:text-gray-400 mb-4">
+                                                    {{ milestone.description[currentLanguage] }}
+                                                </div>
+                                                
+                                                <!-- Key Achievements -->
+                                                <div v-if="milestone.achievements" class="mt-4">
+                                                    <h5 class="text-base lg:text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">
+                                                        {{ currentLanguage === 'en' ? 'Key Achievements' : 'Réalisations Clés' }}
+                                                    </h5>
+                                                    <ul class="space-y-2">
+                                                        <li v-for="achievement in milestone.achievements" class="flex items-start">
+                                                            <i class="fas fa-check text-emerald-500 mr-3 mt-1"></i>
+                                                            <span>{{ achievement[currentLanguage] }}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                
+                                                <!-- Technologies -->
+                                                <div v-if="milestone.technologies" class="mt-4">
+                                                    <h5 class="text-base lg:text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">
+                                                        {{ currentLanguage === 'en' ? 'Technologies' : 'Technologies' }}
+                                                    </h5>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span v-for="tech in milestone.technologies" 
+                                                              class="text-xs px-2 py-1 bg-blue-500/10 text-blue-500 rounded-full">
+                                                            {{ tech }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <!-- Experience Timeline -->
+           
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        
+                        <!-- Timeline Line -->
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-6 lg:space-y-8">
+                            <div v-for="(exp, index) in experienceItems" 
+                                 class="relative pl-6 lg:pl-8 group">
+                                <!-- Timeline Dot -->
+                                <div class="absolute left-0 top-0 w-3 h-3 lg:w-4 lg:h-4 rounded-full bg-blue-500 transform -translate-x-1/2 group-hover:scale-150 transition-transform"></div>
+                                
+                                <!-- Experience Card -->
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 lg:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                        <h3 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200">{{ exp.companyName[currentLanguage] }}</h3>
+                                        <span class="text-sm lg:text-base text-blue-500 dark:text-blue-400 font-medium">{{ exp.date }}</span>
+                                    </div>
+                                    <div class="text-sm lg:text-base text-gray-600 dark:text-gray-400 mb-4">
+                                        <span class="font-medium">{{ exp.jobTitle[currentLanguage] }}</span>
+                                    </div>
+                                    
+                                    <!-- Expandable Content -->
+                                    <div class="space-y-4">
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="text-base lg:text-lg font-bold text-gray-700 dark:text-gray-300">
+                                                {{ currentLanguage === 'en' ? 'Experience Details' : 'Détails de l\'Expérience' }}
+                                            </h4>
+                                            <button @click="toggleExperienceDetails(index)" 
+                                                    class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                                <i :class="{'fas fa-chevron-down': !exp.showDetails, 'fas fa-chevron-up': exp.showDetails}" 
+                                                   class="transform transition-transform duration-300"></i>
+                                            </button>
+                                        </div>
+                                        
+                                        <div v-if="exp.showDetails" class="space-y-2 text-sm lg:text-base text-gray-600 dark:text-gray-400 animate-fade-in">
+                                            <div class="mb-4">
+                                                {{ exp.desc[currentLanguage] }}
+                                            </div>
+                                            
+                                            <!-- Key Projects -->
+                                            <div v-if="exp.projects" class="mt-4">
+                                                <h5 class="text-base lg:text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">
+                                                    {{ currentLanguage === 'en' ? 'Key Projects' : 'Projets Clés' }}
+                                                </h5>
+                                                <ul class="space-y-2">
+                                                    <li v-for="project in exp.projects" class="flex items-start">
+                                                        <i class="fas fa-check text-emerald-500 mr-3 mt-1"></i>
+                                                        <div>
+                                                            <span class="font-medium">{{ project.title[currentLanguage] }}</span>
+                                                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ project.description[currentLanguage] }}</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <!-- Technologies Used -->
+                                            <div v-if="exp.technologies" class="mt-4">
+                                                <h5 class="text-base lg:text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">
+                                                    {{ currentLanguage === 'en' ? 'Technologies Used' : 'Technologies Utilisées' }}
+                                                </h5>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span v-for="tech in exp.technologies" 
+                                                          class="text-xs px-2 py-1 bg-blue-500/10 text-blue-500 rounded-full">
+                                                        {{ tech }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+        
+        <!-- Skills Section -->
+        <section id="skills" class="section bg-gray-50 dark:bg-gray-900/50 -mt-1">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <span class="subtitle">{{ currentLanguage === 'en' ? 'Skills' : 'Compétences' }}</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        {{ currentLanguage === 'en' ? 'Technical' : 'Compétences' }} <span class="text-blue-500 dark:text-blue-400">{{ currentLanguage === 'en' ? 'Expertise' : 'Techniques' }}</span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        {{ currentLanguage === 'en' ? 'Comprehensive expertise in AI, Machine Learning, Software Development, and Data Science, with a focus on practical implementation and deployment.' : 'Expertise complète en IA, Machine Learning, Développement Logiciel et Science des Données, avec un accent sur l\'implémentation et le déploiement pratiques.' }}
+                    </p>
+                </div>
+                
+                <!-- Skills Categories -->
+                <div class="skill-category-buttons hide-scrollbar">
+                    <button v-for="(skills, category) in skills" 
+                            @click="activeSkillTab = category"
+                            :key="category"
+                            :class="{'bg-[#6366F1] text-white': activeSkillTab === category, 'bg-transparent border-2 border-[#6366F1] text-[#6366F1]': activeSkillTab !== category}"
+                            class="flex-shrink-0 px-6 py-2 rounded-[30px] font-medium transition-all duration-300 hover:scale-105">
+                        {{ formatCategory(category) }}
+                    </button>
+                </div>
+                
+                <!-- Skills Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div v-for="skill in skills[activeSkillTab]" 
+                         :key="skill.name"
+                         class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <img :src="skill.icon" :alt="skill.name" class="w-8 h-8 mr-3 object-contain">
+                            <h4 class="font-medium text-gray-800 dark:text-gray-200">{{ skill.name }}</h4>
+                            </div>
+                        <div class="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div class="absolute top-0 left-0 h-full bg-[#6366F1] rounded-full transition-all duration-500"
+                                 :style="{ width: skill.level + '%' }"></div>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center text-sm">
+                            <span class="text-gray-600 dark:text-gray-400">
+                                {{ skill.description || `${skill.level}%` }}
+                            </span>
+                            <span v-if="skill.category" class="text-[#6366F1] text-xs px-2 py-1 bg-[#6366F1]/10 rounded-full">
+                                {{ skill.category }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section bg-white dark:bg-gray-800 -mt-1">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 lg:mb-12 animate-fade-in-up">
+                    <span class="subtitle">{{ currentLanguage === 'en' ? 'Portfolio' : 'Portefeuille' }}</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        {{ currentLanguage === 'en' ? 'Featured' : 'Projets' }} <span class="text-blue-500 dark:text-blue-400">{{ currentLanguage === 'en' ? 'Projects' : 'Mis en Avant' }}</span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        {{ currentLanguage === 'en' ? 
+                            'Explore my collection of AI and data science projects that demonstrate my technical capabilities.' : 
+                            'Découvrez ma collection de projets d\'IA et de science des données qui démontrent mes capacités techniques.' }}
+                    </p>
+                </div>
+                
+                <!-- Featured Projects Grid -->
+                <div class="relative">
+                    <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8 lg:mb-12 overflow-x-auto sm:overflow-x-visible pb-6 sm:pb-0 hide-scrollbar">
+                        <div v-for="(project, index) in highlightedProjects" 
+                             class="project-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 w-[85vw] sm:w-auto flex-shrink-0">
+                            <!-- Project Image with Overlay -->
+                            <div class="relative overflow-hidden h-48 group">
+                                <img :src="project.imgUrl" :alt="project.title[currentLanguage]" 
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6">
+                                    <div>
+                                        <h3 class="text-white font-bold text-xl mb-1">{{ project.title[currentLanguage] }}</h3>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span v-for="tag in project.tags" 
+                                                  class="text-xs px-2 py-1 bg-blue-500/20 text-blue-500 rounded-full">
+                                                {{ tag }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Hover Overlay -->
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <a :href="project.url" target="_blank" 
+                                           class="text-white bg-blue-500 px-4 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 inline-block mb-2">
+                                            {{ currentLanguage === 'en' ? 'View Project' : 'Voir le Projet' }} <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                        <div class="flex justify-center space-x-4">
+                                            <a v-if="project.githubUrl" :href="project.githubUrl" target="_blank" 
+                                               class="text-white hover:text-blue-400 transition-colors">
+                                                <i class="fab fa-github text-xl"></i>
+                                            </a>
+                                            <a v-if="project.demoUrl" :href="project.demoUrl" target="_blank" 
+                                               class="text-white hover:text-blue-400 transition-colors">
+                                                <i class="fas fa-external-link-alt text-xl"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Details -->
+                            <div class="p-6">
+                                <p class="text-gray-600 dark:text-gray-400 mb-4">{{ project.description[currentLanguage] }}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500">{{ project.date[currentLanguage] }}</span>
+                                    <button @click="openProjectModal(project)" 
+                                            class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 font-medium flex items-center group">
+                                        {{ currentLanguage === 'en' ? 'View Details' : 'Voir Détails' }}
+                                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Swipe Indicator -->
+                    <div class="mt-6 flex justify-center items-center gap-2 sm:hidden">
+                        <div class="text-sm text-gray-600 dark:text-gray-400">
+                            {{ currentLanguage === 'en' ? 'Swipe to see more' : 'Glissez pour voir plus' }}
+                            <i class="fas fa-arrow-right ml-2 animate-pulse"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- View All Projects Button -->
+                <div class="text-center">
+                    <button @click="showAllProjects = true" 
+                            class="btn-outline px-8 py-3 rounded-full font-medium hover:scale-105 transition-transform">
+                        {{ currentLanguage === 'en' ? 'View All Projects' : 'Voir Tous les Projets' }}
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section bg-gray-50 dark:bg-gray-900/50 -mt-1">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 lg:mb-12">
+                    <span class="subtitle">{{ currentLanguage === 'en' ? 'Education' : 'Formation' }}</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        {{ currentLanguage === 'en' ? 'My' : 'Mon' }} <span class="text-blue-500 dark:text-blue-400">{{ currentLanguage === 'en' ? 'Academic Journey' : 'Parcours Académique' }}</span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        {{ currentLanguage === 'en' ? 'My educational background has provided me with a strong foundation in mathematics, computer science, and artificial intelligence.' : 'Mon parcours éducatif m\'a fourni une solide base en mathématiques, informatique et intelligence artificielle.' }}
+                    </p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <!-- Education Timeline -->
+                    <div class="relative">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-6 lg:space-y-8">
+                            <div v-for="(edu, index) in educationItems" 
+                                 class="relative pl-6 lg:pl-8 group">
+                                <!-- Timeline Dot -->
+                                <div class="absolute left-0 top-0 w-3 h-3 lg:w-4 lg:h-4 rounded-full bg-blue-500 transform -translate-x-1/2 group-hover:scale-150 transition-transform"></div>
+                                
+                                <!-- Education Card -->
+                                <div class="bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                        <h3 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200">{{ edu.institution }}</h3>
+                                        <span class="text-sm lg:text-base text-blue-500 dark:text-blue-400 font-medium">{{ edu.period }}</span>
+                                    </div>
+                                    <div class="text-sm lg:text-base text-gray-600 dark:text-gray-400 mb-4">
+                                        <span class="font-medium">{{ edu.degree }}</span>
+                                        <span class="mx-2">•</span>
+                                        <span>{{ edu.location }}</span>
+                                    </div>
+                                    
+                                    <!-- Expandable Content -->
+                                    <div class="space-y-4">
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="text-base lg:text-lg font-bold text-gray-700 dark:text-gray-300">
+                                                {{ currentLanguage === 'en' ? 'Key Achievements' : 'Réalisations Clés' }}
+                                            </h4>
+                                            <button @click="toggleEducationDetails(index)" 
+                                                    class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                                <i :class="{'fas fa-chevron-down': !edu.showDetails, 'fas fa-chevron-up': edu.showDetails}" 
+                                                   class="transform transition-transform duration-300"></i>
+                                            </button>
+                                        </div>
+                                        
+                                        <div v-if="edu.showDetails" class="space-y-2 text-sm lg:text-base text-gray-600 dark:text-gray-400 animate-fade-in">
+                                            <ul class="space-y-2">
+                                                <li v-for="point in edu.points" class="flex">
+                                                    <i class="fas fa-check text-emerald-500 mr-3 mt-1"></i>
+                                                    <span>{{ point }}</span>
+                                                </li>
+                                            </ul>
+                                            
+                                            <!-- Additional Details -->
+                                            <div v-if="edu.additionalDetails" class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    <div v-for="(detail, key) in edu.additionalDetails" class="space-y-2">
+                                                        <h5 class="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300">
+                                                            {{ currentLanguage === 'en' ? key : detail.fr.label }}
+                                                        </h5>
+                                                        <p class="text-xs lg:text-sm">{{ currentLanguage === 'en' ? detail.en : detail.fr.value }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- View Full Education Button -->
+                    <div class="text-center mt-8 lg:mt-12">
+                        <button @click="showEducationModal = true" 
+                                class="btn-outline px-6 sm:px-8 py-3 rounded-full font-medium hover:scale-105 transition-transform">
+                            {{ currentLanguage === 'en' ? 'View Full Education History' : 'Voir l\'Historique Complet' }}
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Education Modal -->
+                <div v-if="showEducationModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="relative">
+                            <button @click="showEducationModal = false" 
+                                    class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="p-6 lg:p-8">
+                                <h3 class="text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">
+                                    {{ currentLanguage === 'en' ? 'Complete Education History' : 'Historique Complet de Formation' }}
+                                </h3>
+                                
+                                <div class="space-y-6 lg:space-y-8">
+                                    <div v-for="edu in educationItems" class="bg-gray-50 dark:bg-gray-700 p-4 lg:p-6 rounded-xl">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                            <h4 class="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200">{{ edu.institution }}</h4>
+                                            <span class="text-sm lg:text-base text-blue-500 dark:text-blue-400">{{ edu.period }}</span>
+                                        </div>
+                                        <div class="text-sm lg:text-base text-gray-600 dark:text-gray-400 mb-4">
+                                            <span class="font-medium">{{ edu.degree }}</span>
+                                            <span class="mx-2">•</span>
+                                            <span>{{ edu.location }}</span>
+                                        </div>
+                                        <ul class="space-y-2 text-sm lg:text-base text-gray-600 dark:text-gray-400">
+                                            <li v-for="point in edu.points" class="flex">
+                                                <i class="fas fa-check text-emerald-500 mr-3 mt-1"></i>
+                                                <span>{{ point }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section bg-[#1e2937] dark:bg-[#1e2937] overflow-x-hidden py-8 sm:py-12 -mt-1">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 sm:mb-12">
+                    <span class="subtitle text-[#3b82f6] uppercase tracking-wider text-sm sm:text-base">
+                        {{ currentLanguage === 'en' ? 'TESTIMONIALS' : 'TÉMOIGNAGES' }}
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
+                        {{ currentLanguage === 'en' ? 'What People' : 'Ce Que Les Gens' }} 
+                        <span class="text-[#3b82f6]">{{ currentLanguage === 'en' ? 'Say' : 'Disent' }}</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+                        {{ currentLanguage === 'en' ? 
+                            'Feedback from clients and colleagues about my work and professional approach.' : 
+                            'Retours de clients et collègues sur mon travail et mon approche professionnelle.' }}
+                    </p>
+                </div>
+                
+                <!-- Testimonials Gallery -->
+                <div class="testimonials-wrapper relative max-w-7xl mx-auto">
+                    <!-- Navigation Arrows - Hidden on mobile -->
+                    <button @click="prevSlide" 
+                            class="carousel-control hidden sm:flex left-4 absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-gray-800/80 hover:bg-gray-700 items-center justify-center text-gray-400 hover:text-white transition-colors backdrop-blur-sm">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button @click="nextSlide"
+                            class="carousel-control hidden sm:flex right-4 absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-gray-800/80 hover:bg-gray-700 items-center justify-center text-gray-400 hover:text-white transition-colors backdrop-blur-sm">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Testimonials Track -->
+                    <div class="testimonials-container overflow-x-auto overflow-y-hidden px-2 -mx-4 mb-0">
+                        <div class="testimonials-track flex gap-2 sm:gap-4 py-1" style="scroll-behavior: smooth;">
+                            <div v-for="(testimonial, index) in testimonialsItems" 
+                                 :key="index"
+                                 class="testimonial-card min-w-[280px] sm:w-[350px] flex-shrink-0">
+                                <div class="bg-[#1e2937] border border-gray-700 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:border-[#3b82f6] h-full">
+                                    <div class="p-4 sm:p-6 flex flex-col h-full">
+                                        <!-- Card Content -->
+                                        <div class="flex items-start gap-3 sm:gap-4 mb-4">
+                                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#10b981] flex items-center justify-center text-white text-base sm:text-lg font-bold flex-shrink-0">
+                                                {{ testimonial.quoteAuthor[currentLanguage].charAt(0) }}
+                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <h4 class="text-base sm:text-lg font-bold text-white truncate">
+                                                    {{ testimonial.quoteAuthor[currentLanguage] }}
+                                                </h4>
+                                                <p class="text-xs sm:text-sm text-gray-400 truncate">
+                                                    {{ testimonial.jobTitle[currentLanguage] }}
+                                                </p>
+                                                <div class="flex items-center text-xs text-gray-500 mt-1">
+                                                    <span class="truncate">{{ testimonial.relationship }}</span>
+                                                    <span class="mx-2">•</span>
+                                                    <span class="truncate">{{ testimonial.date }}</span>
+                            </div>
+                        </div>
+                                        </div>
+                                        <div class="relative flex-grow">
+                                            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
+                                                "{{ testimonial.quoteContent[currentLanguage] }}"
+                                            </p>
+                                            <div class="absolute bottom-0 right-0 w-16 sm:w-24 h-16 sm:h-24 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                                                <i class="fas fa-quote-right text-4xl sm:text-6xl text-[#3b82f6]"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between pt-4 border-t border-gray-700 mt-auto">
+                        <div class="flex text-yellow-400 text-xs sm:text-sm">
+                                                <i v-for="i in 5" :key="i" class="fas fa-star"></i>
+                        </div>
+                                            <div class="text-[#3b82f6] text-xs sm:text-sm font-medium">
+                                                <i class="fas fa-check-circle mr-1"></i>
+                                                {{ currentLanguage === 'en' ? 'Verified' : 'Vérifié' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Swipe Indicator -->
+                    <div class="mt-0 flex justify-center items-center gap-1 sm:hidden">
+                        <div class="text-xs text-gray-400">
+                            {{ currentLanguage === 'en' ? 'Swipe to see more' : 'Glissez pour voir plus' }}
+                            <i class="fas fa-arrow-right ml-1 animate-pulse"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section bg-gray-50 dark:bg-gray-900/50 -mt-1">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <!-- Contact Info -->
+                    <div class="lg:w-1/2">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl blur-xl opacity-20 dark:opacity-30"></div>
+                            <div class="relative">
+                                <span class="subtitle">Get In Touch</span>
+                                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                    Let's <span class="text-blue-500 dark:text-blue-400">Collaborate</span>
+                                </h2>
+                                <p class="text-gray-600 dark:text-gray-400 mb-8">
+                                    Have a project in mind or want to discuss potential opportunities? Feel free to reach out. I'm always open to interesting collaborations and challenges.
+                                </p>
+                                
+                                <div class="space-y-6 mb-8">
+                                    <div class="flex items-start group">
+                                        <div class="w-10 h-10 rounded-full bg-blue-500/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-500 mr-4 mt-1 group-hover:scale-110 transition-transform">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-1">Email</h4>
+                                            <a href="mailto:AbdelilahOurti2018@gmail.com" 
+                                               class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                                                AbdelilahOurti2018@gmail.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start group">
+                                        <div class="w-10 h-10 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-500 mr-4 mt-1 group-hover:scale-110 transition-transform">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-1">Phone</h4>
+                                            <a href="tel:+212655798315" 
+                                               class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                                                +212 655 798 315
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start group">
+                                        <div class="w-10 h-10 rounded-full bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-purple-500 mr-4 mt-1 group-hover:scale-110 transition-transform">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-1">Location</h4>
+                                            <p class="text-gray-600 dark:text-gray-400">Morocco</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Follow Me</h4>
+                                    <div class="flex space-x-4">
+                                        <a v-for="social in socialLinks" :href="social.url" target="_blank" 
+                                           class="social-icon w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-110">
+                                            <i :class="social.icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="lg:w-1/2">
+                        <form @submit.prevent="submitContactForm" 
+                              class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm relative">
+                            <div class="absolute -inset-4 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl blur-xl opacity-20 dark:opacity-30"></div>
+                            <div class="relative">
+                                <div class="mb-6">
+                                    <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                                        {{ currentLanguage === 'en' ? 'Your Name' : 'Votre Nom' }}
+                                    </label>
+                                    <input type="text" id="name" v-model="contactForm.name" required 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all duration-300"
+                                           :placeholder="currentLanguage === 'en' ? 'John Doe' : 'Jean Dupont'">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                                        {{ currentLanguage === 'en' ? 'Email Address' : 'Adresse Email' }}
+                                    </label>
+                                    <input type="email" id="email" v-model="contactForm.email" required 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all duration-300"
+                                           :placeholder="currentLanguage === 'en' ? 'john.doe@example.com' : 'jean.dupont@exemple.com'">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="subject" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                                        {{ currentLanguage === 'en' ? 'Subject' : 'Sujet' }}
+                                    </label>
+                                    <input type="text" id="subject" v-model="contactForm.subject" 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all duration-300"
+                                           :placeholder="currentLanguage === 'en' ? 'Project Inquiry' : 'Demande de Projet'">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                                        {{ currentLanguage === 'en' ? 'Your Message' : 'Votre Message' }}
+                                    </label>
+                                    <textarea id="message" v-model="contactForm.message" required rows="5"
+                                              class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all duration-300"
+                                              :placeholder="currentLanguage === 'en' ? 'Tell me about your project...' : 'Parlez-moi de votre projet...'"></textarea>
+                                </div>
+                                <button type="submit" 
+                                        class="btn-primary w-full py-3 rounded-lg font-medium hover:scale-105 transition-transform">
+                                    {{ currentLanguage === 'en' ? 'Send Message' : 'Envoyer le Message' }} <i class="fas fa-paper-plane ml-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 dark:bg-gray-900 py-12">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <div class="text-2xl font-bold text-white mb-2">Ourti</div>
+                        <p class="text-gray-400">
+                            {{ currentLanguage === 'en' ? 'Building intelligent solutions with AI and machine learning.' : 'Création de solutions intelligentes avec l\'IA et le machine learning.' }}
+                        </p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a v-for="social in socialLinks" :href="social.url" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i :class="social.icon + ' text-xl'"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">&copy; {{ new Date().getFullYear() }} Abdelilah Ourti. {{ currentLanguage === 'en' ? 'All rights reserved.' : 'Tous droits réservés.' }}</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            {{ currentLanguage === 'en' ? 'Privacy Policy' : 'Politique de Confidentialité' }}
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            {{ currentLanguage === 'en' ? 'Terms of Service' : 'Conditions d\'Utilisation' }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button v-show="showBackToTop" @click="scrollToTop" 
+                class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Notification Toast -->
+        <div v-if="notification.show" 
+             class="fixed bottom-8 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg text-white flex items-center"
+             :class="{'bg-green-500': notification.type === 'success', 'bg-red-500': notification.type === 'error'}">
+            <span>{{ notification.message }}</span>
+            <button @click="notification.show = false" class="ml-4">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isLoaded: false,
+                loadingProgress: 0,
+                isDarkMode: false,
+                isMobileMenuOpen: false,
+                isHeaderBig: true,
+                currentSection: 'home',
+                showBackToTop: false,
+                activeSkillTab: 'languages',
+                currentFilter: 'All',
+                notification: {
+                    show: false,
+                    type: 'success',
+                    message: ''
+                },
+                contactForm: {
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: ''
+                },
+                navLinks: [
+                    { url: '#home', title: { en: 'Home', fr: 'Accueil' } },
+                    { url: '#about', title: { en: 'About', fr: 'À Propos' } },
+                    { url: '#skills', title: { en: 'Skills', fr: 'Compétences' } },
+                    { url: '#experience', title: { en: 'Experience', fr: 'Expérience' } },
+                    { url: '#portfolio', title: { en: 'Portfolio', fr: 'Portefeuille' } },
+                    { url: '#education', title: { en: 'Education', fr: 'Formation' } },
+                    { url: '#contact', title: { en: 'Contact', fr: 'Contact' } }
+                ],
+                socialLinks: [
+                    { url: 'https://github.com/Abdelilah04116', icon: 'fab fa-github' },
+                    { url: 'https://www.linkedin.com/in/Ourti-Abdelilah', icon: 'fab fa-linkedin-in' }
+                ],
+                        skills : {
+                languages: [
+                    { name: 'Python', level: 95, icon: 'assets/images/python-icon.png', description: 'Advanced' },
+                    { name: 'SQL', level: 90, icon: 'assets/images/SQL.png' },
+                    { name: 'Java', level: 85, icon: 'assets/images/java-logo.png' },
+                    { name: 'C++', level: 80, icon: 'assets/images/cpp.png' },
+                ],
+                frameworks: [
+                    { name: 'TensorFlow', level: 90, icon: 'assets/images/tensorflow-icon.png', description: 'Advanced' },
+                    { name: 'PyTorch', level: 90, icon: 'assets/images/pytorch-icon.png', description: 'Advanced' },
+                    { name: 'Keras', level: 85, icon: 'assets/images/Keras.png' },
+                    { name: 'Scikit-learn', level: 88, icon: 'assets/images/Scikit-learn.png', description: 'Advanced' },
+                    { name: 'HuggingFace', level: 90, icon: 'assets/images/hug.png', description: 'Advanced' },
+                    { name: 'crewAI', level: 90, icon: 'assets/images/crewai-icon.png', description: 'Advanced' },
+                    { name: 'LangChain', level: 85, icon: 'assets/images/langchain-icon.png', description: 'Advanced' },
+                    { name: 'PyTorch3D', level: 90, icon: 'assets/images/pytorch3d-icon.png', description: 'Advanced' },
+                    { name: 'Open3D', level: 85, icon: 'assets/images/open3d-icon.png', description: 'Advanced' },
+                ],
+                aiTools: [
+                    { name: 'OpenCV', level: 90, icon: 'assets/images/OpenCV.png', category: 'Computer Vision' },
+                    { name: 'NLTK', level: 85, icon: 'assets/images/NLTK.png', category: 'NLP' },
+                    { name: 'Transformers', level: 85, icon: 'assets/images/transformers-icon.png', category: 'NLP' },
+                    { name: 'SpaCy', level: 85, icon: 'assets/images/spacy-icon.png', category: 'NLP' },
+                    { name: 'RAG', level: 90, icon: 'assets/images/rag-icon.png', category: 'NLP' }
+                ],
+                dataScience: [
+                    { name: 'NumPy', level: 90, icon: 'assets/images/NumPy.png' },
+                    { name: 'Pandas', level: 90, icon: 'assets/images/pandas.png' },
+                    { name: 'Matplotlib', level: 85, icon: 'assets/images/Matplotlib.png' },
+                    { name: 'Seaborn', level: 85, icon: 'assets/images/seaborn.png' }
+                ],
+                webDev: [
+                    { name: 'HTML5', level: 85, icon: 'assets/images/HTML5.png' },
+                    { name: 'JavaScript', level: 80, icon: 'assets/images/JavaScript.png' },
+                    { name: 'CSS', level: 80, icon: 'assets/images/CSS3.png' },
+                    { name: 'React', level: 85, icon: 'assets/images/React.png' },
+                ],
+                devTools: [
+                    { name: 'Git', level: 90, icon: 'assets/images/git-icon.png' },
+                    { name: 'GitHub', level: 85, icon: 'assets/images/github.jpg' },
+                    { name: 'Anaconda', level: 85, icon: 'assets/images/anaconda-icon.png' },
+                    { name: 'Jupyter', level: 90, icon: 'assets/images/jupyter-icon.png' },
+                    { name: 'Google Colab', level: 85, icon: 'assets/images/colab-icon.png' },
+                    { name: 'Talend', level: 85, icon: 'assets/images/talend.png' },
+                    { name: 'Docker', level: 90, icon: 'assets/images/Docker.png' }
+                ],
+                mlops: [
+                    { name: 'MLflow', level: 85, icon: 'assets/images/MLflow.png' },
+                    { name: 'CI/CD', level: 75, icon: 'assets/images/cicd-icon.png' },
+                    { name: 'Model Deployment', level: 80, icon: 'assets/images/deployment-icon.png' },
+                    { name: 'Model Monitoring', level: 75, icon: 'assets/images/monitoring-icon.png' },
+                    { name: 'Kubernetes', level: 85, icon: 'assets/images/Kubernetes.png' },
+                    { name: 'DVC', level: 80, icon: 'assets/images/dvc.png' },
+                    { name: 'W&B', level: 85, icon: 'assets/images/Weights.svg' }
+                ],
+                other: [
+                    { name: 'Linux (Ubuntu)', level: 80, icon: 'assets/images/linux.png' },
+                    { name: 'Windows', level: 85, icon: 'assets/images/Windows.png' },
+                    { name: 'Agile/Scrum', level: 80, icon: 'assets/images/agile.png' },
+                    { name: 'UML', level: 75, icon: 'assets/images/UML.png' },
+                    { name: 'Merise', level: 75, icon: 'assets/images/Merise.png' },
+                ]
+                },
+                experienceItems: [
+                    {
+                    "date": "2023 - Present",
+                    "companyName": {
+                        "en": "ENIAD (National School of Artificial Intelligence and Digital)",
+                        "fr": "ENIAD (École Nationale de L'Intelligence Artificielle et du Digital)"
+                    },
+                    "jobTitle": {
+                        "en": "AI and Deep Learning Engineer",
+                        "fr": "Ingénieur en IA et Deep Learning"
+                    },
+                    "desc": {
+                        "en": "Specializing in the design and deployment of advanced Deep Learning models, Computer Vision pipelines, and Generative AI systems. Skilled in the full AI development lifecycle, from data preprocessing to deployment.",
+                        "fr": "Spécialisé dans la conception et le déploiement de modèles avancés de Deep Learning, de pipelines de vision par ordinateur et de systèmes d'IA générative. Maîtrise du cycle complet de développement de l'IA, du prétraitement des données jusqu'au déploiement."
+                    },
+                    "showDetails": false,
+                    "projects": [
+                        {
+                        "title": {
+                            "en": "3D Dental Surface Reconstruction",
+                            "fr": "Reconstruction de Surface Dentaire 3D"
+                        },
+                        "description": {
+                            "en": "Designed a deep learning model to reconstruct 3D dental surfaces from 2D X-ray inputs using encoder-decoder architecture and volumetric rendering techniques. Deployed a demo with interactive 3D visualization.",
+                            "fr": "Conception d'un modèle de deep learning pour reconstruire des surfaces dentaires 3D à partir d'images de radiographie 2D en utilisant une architecture encodeur-décodeur et des techniques de rendu volumétrique. Déploiement d'une démo avec visualisation 3D interactive."
+                        }
+                        },
+                        {
+                        "title": {
+                            "en": "AI-Powered Tooth Type Classifier",
+                            "fr": "Classificateur de Type Dentaire avec IA"
+                        },
+                        "description": {
+                            "en": "Built and trained a CNN-based classifier to identify tooth types from 3D dental scans. Achieved over 95% accuracy on a custom-labeled dataset. Integrated results into a Streamlit dashboard for real-time inference.",
+                            "fr": "Création et entraînement d'un classificateur basé sur un CNN pour identifier les types de dents à partir de scans dentaires 3D. Précision supérieure à 95 % sur un jeu de données annoté manuellement. Intégration des résultats dans un tableau de bord Streamlit pour une inférence en temps réel."
+                        }
+                        }
+                    ],
+                    "technologies": [
+                        "TensorFlow",
+                        "PyTorch",
+                        "OpenCV",
+                        "PyTorch3D",
+                        "Transformers",
+                        "CLIP",
+                        "Docker",
+                        "Kubernetes"
+                    ]
+                    },
+                    {
+                        date: '2024',
+                        companyName: {
+                            en: '3D Smart Factory',
+                            fr: '3D Smart Factory'
+                        },
+                        jobTitle: {
+                            en: 'ML Engineering Intern',
+                            fr: 'Stagiaire en Ingénierie ML'
+                        },
+                        desc: {
+                            en: 'Developed a 3D classification solution achieving 97% accuracy, leveraging deep learning and 3D technologies for accurate object classification.',
+                            fr: 'Développement d\'une solution de classification 3D atteignant une précision de 97%, en utilisant le deep learning et des technologies 3D pour une classification précise des objets.'
+                        },
+                        showDetails: false,
+                        projects: [
+                            {
+                                title: {
+                                    en: '3D Classification Solution',
+                                    fr: 'Solution de Classification 3D'
+                                },
+                                description: {
+                                    en: 'Designed and implemented a hybrid 3D classification model using TensorFlow and PyTorch3D, which significantly improved classification accuracy.',
+                                    fr: 'Conception et implémentation d\'un modèle hybride de classification 3D utilisant TensorFlow et PyTorch3D, ce qui a considérablement amélioré la précision de la classification.'
+                                }
+                            }
+                        ],
+                        technologies: ['TensorFlow', 'Keras', 'PyTorch3D']
+                    },
+                    {
+                        date: '2024',
+                        companyName: {
+                            en: 'HGS-Hightech',
+                            fr: 'HGS-Hightech'
+                        },
+                        jobTitle: {
+                            en: 'Computer Vision Intern',
+                            fr: 'Stagiaire en Vision par Ordinateur'
+                        },
+                        desc: {
+                            en: 'Developed a 360° visualization system using deep learning techniques and a web interface, enabling interactive 3D product visualization.',
+                            fr: 'Développement d\'un système de visualisation à 360° utilisant des techniques de deep learning et une interface web, permettant la visualisation interactive d\'un produit en 3D.'
+                        },
+                        showDetails: false,
+                        projects: [
+                            {
+                                title: {
+                                    en: '360° Visualization System',
+                                    fr: 'Système de Visualisation à 360°'
+                                },
+                                description: {
+                                    en: 'Created an interactive 360° visualization system for product displays using deep learning and computer vision techniques.',
+                                    fr: 'Création d\'un système interactif de visualisation à 360° pour l\'affichage de produits, en utilisant des techniques de deep learning et de vision par ordinateur.'
+                                }
+                            }
+                        ],
+                        technologies: ['TensorFlow', 'Deep Learning', 'Web Interface']
+                    },
+
+                ],
+                filters: ['All', 'AI', 'Machine Learning', 'Deep Learning', 'Data Science', 'NLP', 'Computer Vision'],
+                
+                educationItems: [
+                    {
+                        institution: 'National School of Artificial Intelligence and Digitization (ENIAD)',
+                        degree: 'Engineering Degree in Artificial Intelligence',
+                        period: '2023 – Present',
+                        location: 'Morocco',
+                        showDetails: false,
+                        points: [
+                            'Specialization in Artificial Intelligence and Data Science',
+                            'Advanced coursework in Machine Learning, Deep Learning, and Data Science',
+                            'Practical projects in Computer Vision, NLP, and image classification',
+                            'Research focus on AI applications and innovative technologies',
+                            'Developed a real-time flower recognition system with 95% accuracy'
+                        ],
+                        additionalDetails: {
+                            'GPA': {
+                                en: '3.8/4.0',
+                                fr: '3.8/4.0'
+                            },
+                            'Relevant Courses': {
+                                en: 'Deep Learning, Computer Vision, NLP, Data Mining',
+                                fr: 'Deep Learning, Vision par Ordinateur, NLP, Data Mining'
+                            },
+                            'Research Projects': {
+                                en: '3 published papers in AI conferences',
+                                fr: '3 articles publiés dans des conférences d\'IA'
+                            }
+                        }
+                    },
+                    {
+                        institution: 'Faculté des Sciences et Techniques',
+                        degree: "DEUST en Mathématiques, Informatique et Physique",
+                        period: '2021 – 2023',
+                        location: 'Errachidia, Morocco',
+                        showDetails: false,
+                        points: [
+                            'Advanced Mathematics and Algorithmic courses',
+                            'Computer Science Fundamentals, including programming and software engineering',
+                            'Software Engineering Principles and project management',
+                        ],
+                        additionalDetails: {
+                            'GPA': {
+                                en: '3.7/4.0',
+                                fr: '3.7/4.0'
+                            },
+                            'Relevant Courses': {
+                                en: 'Mathematics, Computer Science, Algorithms',
+                                fr: 'Mathématiques, Informatique, Algorithmes'
+                            },
+                            'Research Projects': {
+                                en: '1 published paper in a computer science journal',
+                                fr: '1 article publié dans une revue scientifique d\'informatique'
+                            }
+                        }
+                    },
+                    {
+                        institution: 'Lycee Abdelkarim El-khatabi Dades',
+                        degree: 'Baccalaureate in Physical and Chemical Sciences',
+                        period: '2021',
+                        location: 'LaKhmis Dades Tinghir, Morocco',
+                        showDetails: false,
+                        points: [
+                            'Strong foundation in Physics and Chemistry',
+                            'Comprehensive education in Mathematics and Sciences',
+                            'Excellent academic performance'
+                        ],
+                        additionalDetails: {
+                            'GPA': {
+                                en: '4.0/4.0',
+                                fr: '4.0/4.0'
+                            },
+                            'Relevant Courses': {
+                                en: 'Physics, Chemistry, Mathematics',
+                                fr: 'Physique, Chimie, Mathématiques'
+                            },
+                            'Extra-Curricular Activities': {
+                                en: 'Participation in science fairs and robotics competitions',
+                                fr: 'Participation à des foires scientifiques et compétitions de robotique'
+                            }
+                        }
+                    }
+                ],
+                testimonialsItems: [
+                    {
+                        quoteAuthor: { 
+                            en: 'Youssef MELLAH, Ph.D.',
+                            fr: 'Youssef MELLAH, Ph.D.'
+                        },
+                        jobTitle: { 
+                            en: 'Senior Machine Learning Engineer | Data Scientist | AI Ph.D. | AI Assistant Professor | AI Researcher',
+                            fr: 'Senior Machine Learning Engineer | Data Scientist | AI Ph.D. | AI Assistant Professor | AI Researcher'
+                        },
+                        quoteContent: { 
+                            en: 'I had the opportunity to teach Abdelilah Ourti during his academic studies. Throughout the course, he showed consistency, seriousness, and a good understanding of the key concepts covered. He completed his assignments on time and participated regularly in class discussions.\n\nAbdelilah has a solid foundation in his field and shows a willingness to learn and improve. He works well both independently and in a team setting, and I believe he has the potential to grow further in a professional environment.\n\nI recommend him for roles or projects where a reliable and motivated team member is needed.',
+                            fr: 'I had the opportunity to teach Abdelilah Ourti during his academic studies. Throughout the course, he showed consistency, seriousness, and a good understanding of the key concepts covered. He completed his assignments on time and participated regularly in class discussions.\n\nAbdelilah has a solid foundation in his field and shows a willingness to learn and improve. He works well both independently and in a team setting, and I believe he has the potential to grow further in a professional environment.\n\nI recommend him for roles or projects where a reliable and motivated team member is needed.'
+                        },
+                        relationship: 'First-degree connection',
+                        date: 'April 21, 2025',
+                        context: 'Youssef was Abdelilah\'s professor',
+                        imgUrl: 'assets/images/testimonials/professor.jpg'
+                    },
+                    {
+                        quoteAuthor: { 
+                            en: 'Houda Benhar',
+                            fr: 'Houda Benhar'
+                        },
+                        jobTitle: { 
+                            en: 'Machine Learning Ph.D',
+                            fr: 'Machine Learning Ph.D'
+                        },
+                        quoteContent: { 
+                            en: 'Abdelilah is a serious student and one of the most dedicated and focused individuals I\'ve come across. His commitment to learning and personal growth is truly admirable. Wishing him all the best in his future endeavors!',
+                            fr: 'Abdelilah is a serious student and one of the most dedicated and focused individuals I\'ve come across. His commitment to learning and personal growth is truly admirable. Wishing him all the best in his future endeavors!'
+                        },
+                        relationship: 'First-degree connection',
+                        date: 'April 16, 2025',
+                        context: 'Houda was Abdelilah\'s professor',
+                        imgUrl: 'assets/images/testimonials/professor2.jpg'
+                    },
+                    {
+                        quoteAuthor: { 
+                            en: 'Hamza MOUNCIF',
+                            fr: 'Hamza MOUNCIF'
+                        },
+                        jobTitle: { 
+                            en: '3D Computer Vision | PhD Researcher',
+                            fr: '3D Computer Vision | PhD Researcher'
+                        },
+                        quoteContent: { 
+                            en: 'Well skilled, and hard worker',
+                            fr: 'Well skilled, and hard worker'
+                        },
+                        relationship: 'First-degree connection',
+                        date: 'March 31, 2025',
+                        context: 'Hamza was Abdelilah\'s direct manager',
+                        imgUrl: 'assets/images/testimonials/manager.jpg'
+                    },
+                    {
+                        quoteAuthor: { 
+                            en: 'Adama Coulibaly',
+                            fr: 'Adama Coulibaly'
+                        },
+                        jobTitle: { 
+                            en: 'Software Developer | DevOps | ML',
+                            fr: 'Développeur Logiciel | DevOps | ML'
+                        },
+                        quoteContent: { 
+                            en: 'In our AI courses, I saw courage and determination in Abdelilah. Moreover, we worked on the same project, where he was my scrum master. He worked until the project was completed. I appreciate his analytical mind. I highly recommend him for his seriousness and selflessness.',
+                            fr: 'In our AI courses, I saw courage and determination in Abdelilah. Moreover, we worked on the same project, where he was my scrum master. He worked until the project was completed. I appreciate his analytical mind. I highly recommend him for his seriousness and selflessness.'
+                        },
+                        relationship: 'First-degree connection',
+                        date: 'February 6, 2025',
+                        context: 'Adama and Abdelilah attended the same school',
+                        imgUrl: 'assets/images/testimonials/colleague1.jpg'
+                    },
+                    {
+                        quoteAuthor: { 
+                            en: 'Yassine Ben Acha',
+                            fr: 'Yassine Ben Acha'
+                        },
+                        jobTitle: { 
+                            en: 'AI Engineering | Machine Learning & Deep Learning Enthusiast',
+                            fr: 'AI Engineering | Machine Learning & Deep Learning Enthusiast'
+                        },
+                        quoteContent: { 
+                            en: 'I had the chance to study with Abdelilah at the National School of Artificial Intelligence and Digitization, and he has always impressed with his seriousness, curiosity, and innovative spirit. Not only does he excel technically, but he also knows how to create positive team dynamics. He\'s someone you can always count on, whether it\'s finding creative solutions or motivating colleagues. I recommend him without hesitation for any opportunity - he will make a difference!',
+                            fr: 'J\'ai eu la chance d\'étudier avec Abdelilah à la National School of Artificial Intelligence and Digitization, et il a toujours impressionné par son sérieux, sa curiosité et son esprit innovant. Non seulement il excelle techniquement, mais il sait aussi créer une dynamique positive dans une équipe. C\'est quelqu\'un sur qui on peut toujours compter, que ce soit pour trouver des solutions créatives ou pour motiver ses collègues. Je le recommande sans hésiter pour toute opportunité – il saura faire la différence !'
+                        },
+                        relationship: 'First-degree connection',
+                        date: 'February 6, 2025',
+                        context: 'Yassine and Abdelilah attended the same school',
+                        imgUrl: 'assets/images/testimonials/colleague2.jpg'
+                    },
+                    {
+                        quoteAuthor: { 
+                            en: 'Oussama ELHADJI',
+                            fr: 'Oussama ELHADJI'
+                        },
+                        jobTitle: { 
+                            en: 'AI Engineering Student | Tech Enthusiast, Innovator & Volunteer 💡',
+                            fr: 'Étudiant en Ingénierie de l\'IA | Passionné de Tech, Innovateur & Bénévole 💡'
+                        },
+                        quoteContent: { 
+                            en: 'I had the pleasure of working with Abdelilah Ourti on the same team, where he showed brilliant expertise in AI and Machine Learning. He was great at organizing such complex informatics projects, developing clear flows and goals. Abdelilah would create animated presentations of the most vivid kind and of the highest quality documentation reports; these actually were part of our project deliverables. His problem-solving skills, creativity, and collaborative spirit made him an invaluable team member and an asset for any technical undertaking.',
+                            fr: 'I had the pleasure of working with Abdelilah Ourti on the same team, where he showed brilliant expertise in AI and Machine Learning. He was great at organizing such complex informatics projects, developing clear flows and goals. Abdelilah would create animated presentations of the most vivid kind and of the highest quality documentation reports; these actually were part of our project deliverables. His problem-solving skills, creativity, and collaborative spirit made him an invaluable team member and an asset for any technical undertaking.'
+                        },
+                        relationship: 'First-degree connection',
+                        date: 'February 6, 2025',
+                        context: 'Oussama worked with Abdelilah on the same team',
+                        imgUrl: 'assets/images/testimonials/teammate.jpg'
+                    }
+                ],
+                showEducationModal: false,
+                showAllProjects: false,
+                selectedProject: null,
+                showAITimeline: false,
+                aiJourney: [
+                    {
+                        year: '2025',
+                        title: {
+                            en: 'Advanced AI Research & Development',
+                            fr: 'Recherche & Développement IA Avancé'
+                        },
+                        description: {
+                            en: 'Researching foundation models for 3D understanding and building MLOps infrastructure for AI deployment.',
+                            fr: 'Recherche sur les modèles fondamentaux pour la compréhension 3D et construction d\'infrastructure MLOps pour le déploiement de l\'IA.'
+                        },
+                        achievements: [
+                            {
+                                en: 'Researching foundation models for 3D understanding',
+                                fr: 'Recherche sur les modèles fondamentaux pour la compréhension 3D'
+                            },
+                            {
+                                en: 'Building MLOps infrastructure for AI deployment',
+                                fr: 'Construction d\'infrastructure MLOps pour le déploiement de l\'IA'
+                            },
+                            {
+                                en: 'Exploring neural rendering for interactive applications',
+                                fr: 'Exploration du rendu neuronal pour les applications interactives'
+                            }
+                        ],
+                        technologies: ['PyTorch', 'TensorFlow', 'Kubernetes', 'MLflow', 'NeRF', '3D Vision']
+                    },
+                    {
+                        year: '2024',
+                        title: {
+                            en: '3D Vision & Multi-agent systemAI',
+                            fr: 'Vision 3D & IA Multi-agent system'
+                        },
+                        description: {
+                            en: 'Advanced research in 3D Vision and development of Multi-agent system RAG systems with 97% accuracy in dental modeling.',
+                            fr: 'Recherche avancée en Vision 3D et développement de systèmes RAG multimodaux avec 97% de précision dans la modélisation dentaire.'
+                        },
+                        achievements: [
+                            {
+                                en: 'Achieved 97% accuracy in dental 3D modeling',
+                                fr: 'Atteint 97% de précision dans la modélisation dentaire 3D'
+                            },
+                            {
+                                en: 'Developed Multi-agent system RAG systems',
+                                fr: 'Développé des systèmes RAG multimodaux'
+                            },
+                            {
+                                en: 'Applied diffusion models to medical imaging',
+                                fr: 'Appliqué des modèles de diffusion à l\'imagerie médicale'
+                            }
+                        ],
+                        technologies: ['PyTorch3D', 'Open3D', 'CLIP', 'Transformers', 'Diffusion Models', 'RAG']
+                    },
+                    {
+                        year: '2023',
+                        title: {
+                            en: 'AI Specialization at ENIAD',
+                            fr: 'Spécialisation en IA à l\'ENIAD'
+                        },
+                        description: {
+                            en: 'Specialized in AI & Data Science, implementing Computer Vision for dental classification and building first end-to-end ML pipeline.',
+                            fr: 'Spécialisé en IA & Science des Données, implémentation de la Vision par Ordinateur pour la classification dentaire et construction du premier pipeline ML end-to-end.'
+                        },
+                        achievements: [
+                            {
+                                en: 'Implemented Computer Vision for dental classification',
+                                fr: 'Implémenté la Vision par Ordinateur pour la classification dentaire'
+                            },
+                            {
+                                en: 'Built first end-to-end ML pipeline',
+                                fr: 'Construit le premier pipeline ML end-to-end'
+                            },
+                            {
+                                en: 'Specialized in AI & Data Science',
+                                fr: 'Spécialisé en IA & Science des Données'
+                            }
+                        ],
+                        technologies: ['TensorFlow', 'PyTorch', 'OpenCV', 'Scikit-learn', 'Docker', 'MLflow']
+                    },
+                    {
+                        year: '2022',
+                        title: {
+                            en: 'Foundation in AI & Deep Learning',
+                            fr: 'Fondations en IA & Deep Learning'
+                        },
+                        description: {
+                            en: 'Established foundation in Mathematics & Computer Science, completed first deep learning projects with TensorFlow.',
+                            fr: 'Établi les fondations en Mathématiques & Informatique, complété les premiers projets de deep learning avec TensorFlow.'
+                        },
+                        achievements: [
+                            {
+                                en: 'Completed first deep learning projects with TensorFlow',
+                                fr: 'Complété les premiers projets de deep learning avec TensorFlow'
+                            },
+                            {
+                                en: 'Established foundation in Mathematics & Computer Science',
+                                fr: 'Établi les fondations en Mathématiques & Informatique'
+                            }
+                        ],
+                        technologies: ['Python', 'TensorFlow', 'NumPy', 'Pandas', 'Matplotlib', 'Scikit-learn']
+                    }
+                ],
+                highlightedProjects: [
+                                    {
+                        title: { 
+                            en: 'Article Generator with Data Flywheel',
+                            fr: 'Générateur d\'Articles avec Data Flywheel'
+                        },
+                        githubUrl: 'https://github.com/Ourti/article_generator',
+                        demoUrl: 'https://articlegenerator-mjivv4cekj2q9mtuud2usy.streamlit.app/',
+                        url: 'https://github.com/Ourti/article_generator',
+                        date: { 
+                            en: 'May 4, 2025',
+                            fr: '4 Mai 2025'
+                        },
+                        location: 'Academic Project',
+                        imgUrl: 'assets/images/dataFlywheel.png',
+                        description: {
+                            en: 'A powerful article generation system using a multi-agent architecture with a data flywheel to continuously improve content quality based on user feedback. The system integrates NLP models, semantic search, and generative AI tools to create high-quality articles.',
+                            fr: 'Un puissant système de génération d\'articles utilisant une architecture multi-agents avec un flywheel de données pour améliorer en continu la qualité du contenu basé sur les retours utilisateurs. Le système intègre des modèles NLP, la recherche sémantique et des outils d\'IA générative pour créer des articles de haute qualité.'
+                        },
+                        tags: ['Article Generation', 'Multi-agent System', 'Data Flywheel', 'NLP', 'AI', 'Streamlit']
+                    },
+
+                    {
+                        title: { 
+                            en: 'Intelligent Chatbot for ENIAD',
+                            fr: 'Chatbot Intelligent pour ENIAD'
+                        },
+                        githubUrl: 'https://github.com/ennajari/ENIAD-ASSISTANT',
+                        demoUrl: 'https://github.com/ennajari/ENIAD-ASSISTANT',
+                        url: 'https://github.com/ennajari/ENIAD-ASSISTANT',
+                        date: { 
+                            en: 'April 30, 2025',
+                            fr: '30 Avril 2025'
+                        },
+                        location: 'ENIAD (AI & Digital School)',
+                        imgUrl: 'assets/images/chatbot_eniad.png',
+                        description: {
+                            en: 'A smart chatbot designed for ENIAD students to improve academic communication. The project explores modern NLP and ML techniques including RAG, fine-tuning, HiFT, and Q-LoRA, with a detailed architecture and deployment strategy.',
+                            fr: 'Un chatbot intelligent conçu pour les étudiants de l\'ENIAD pour améliorer la communication académique. Le projet explore les techniques modernes de NLP et ML, notamment RAG, fine-tuning, HiFT et Q-LoRA, avec une architecture détaillée et une stratégie de déploiement.'
+                        },
+                        tags: ['Chatbot', 'NLP', 'Machine Learning', 'RAG', 'HiFT', 'Q-LoRA']
+                    },
+                    {
+                        title: {
+                            en: 'Automated Article Generation with CrewAI & RAG',
+                            fr: 'Génération Automatique d\'Articles avec CrewAI & RAG'
+                        },
+                        date: {
+                            en: '2025',
+                            fr: '2025'
+                        },
+                        githubUrl: 'https://github.com/Abdelilah04116/RAG_Project',
+                        demoUrl: 'https://github.com/Abdelilah04116/RAG_Project',
+                        location: 'Academic Project',
+                        imgUrl: 'assets/images/Automated Article Generation with CrewAI & RAG.png',
+                        url: 'https://github.com/Abdelilah04116/RAG_Project',
+                        description: {
+                            en: 'This project implements a Retrieval-Augmented Generation (RAG) approach using a local LLM through Ollama, featuring a complete data processing pipeline, embedding generation, and contextual querying. The REST API developed with FastAPI enables dynamic interaction with the model, delivering accurate and context-aware responses based on pre-indexed documents.',
+                            fr: 'Ce projet met en œuvre une approche RAG (Retrieval-Augmented Generation) avec un LLM local via Ollama, intégrant un pipeline complet de traitement de données, génération d’embeddings et interrogation contextuelle. L’API REST développée avec FastAPI permet d’interagir dynamiquement avec le modèle, offrant des réponses précises et contextualisées à partir de documents préalablement indexés.'
+                        },
+                        tags: ['CrewAI', 'RAG', 'Vector Databases', 'LangChain', 'LLMs', 'AI Automation']
+                    },
+                    {
+                        title: { 
+                            en: 'BI System for Vehicle Sales Monitoring',
+                            fr: 'Système BI pour le Suivi des Ventes de Véhicules'
+                        },
+                        githubUrl: 'https://github.com/Ourti/BI',
+                        demoUrl: 'https://github.com/Ourti/BI',
+                         url: 'https://github.com/Ourti/BI',
+                        date: { 
+                            en: '2025',
+                            fr: '2025'
+                        },
+                        location: 'Academic Project',
+                        imgUrl: 'assets/images/BI.png',
+                        description: {
+                            en: 'Developed a Business Intelligence system for monitoring vehicle sales. Integrated dashboards, KPIs, and interactive visualizations to assist in data-driven decision making.',
+                            fr: 'Développement d\'un système de Business Intelligence pour le suivi des ventes de véhicules. Intégration de tableaux de bord, KPIs et visualisations interactives pour faciliter la prise de décision basée sur les données.'
+                        },
+                        tags: ['BI', 'Data Visualization', 'Dashboards', 'KPI', 'Power BI', 'Data Analysis']
+                    },
+                    {
+                        title: { 
+                            en: 'Sentiment Analysis Tool',
+                            fr: 'Outil d\'Analyse de Sentiments'
+                        },
+                        imgUrl: 'assets/images/Sentiment Analysis.png',
+                        url: 'https://github.com/Ourti/Customer-Reviews-Classification',
+                        githubUrl: 'https://github.com/Ourti/Customer-Reviews-Classification',
+                        demoUrl: 'https://customer-reviews-classification-az8wv9ajwr8ecea2taqzcl.streamlit.app/',
+                        date: { 
+                            en: '2024',
+                            fr: '2024'
+                        },
+                        description: {
+                            en: 'An NLP tool for analyzing customer reviews using RoBERTa and XLNet models for sentiment classification.',
+                            fr: 'Outil NLP pour analyser les avis clients en utilisant les modèles RoBERTa et XLNet pour la classification des sentiments.'
+                        },
+                        tags: ['NLP', 'Machine Learning', 'PyTorch', 'Streamlit']
+                    },
+
+                    {
+                        title: { 
+                            en: 'Flower Recognition System',
+                            fr: 'Système de Reconnaissance de Fleurs'
+                        },
+                        imgUrl: 'assets/images/Real-Time Flower Recognition System.png',
+                        url: 'https://github.com/Ourti/GANs_MNIST_Presentation_Implementation',
+                        githubUrl: 'https://github.com/Ourti/GANs_MNIST_Presentation_Implementation',
+                        demoUrl: 'https://github.com/Ourti/GANs_MNIST_Presentation_Implementation',
+                        date: { 
+                            en: '2024',
+                            fr: '2024'
+                        },
+                        description: {
+                            en: 'A real-time flower classification system using CNN with 95% accuracy.',
+                            fr: 'Un système de classification de fleurs en temps réel utilisant CNN avec une précision de 95%.'
+                        },
+                        tags: ['Deep Learning', 'Computer Vision', 'TensorFlow']
+                    },
+                    {
+                        title: {
+                            en: 'Time Management Web Application',
+                            fr: 'Application Web de Gestion du Temps'
+                        },
+                        githubUrl: 'https://github.com/Ourti/pfe1',
+                        demoUrl: 'https://github.com/Ourti/pfe1',
+                         url: 'https://github.com/Ourti/pfe1',
+                        date: {
+                            en: '2023',
+                            fr: '2023'
+                        },
+                        location: 'BootCamp YouCode',
+                        imgUrl: 'assets/images/emploi.png',
+                        description: {
+                            en: 'Developed a web application for time management, utilizing the Laravel framework and optimizing schedules through genetic algorithms. The system aimed to improve productivity by intelligently organizing tasks and schedules.',
+                            fr: 'Développement d\'une application web de gestion du temps, utilisant le framework Laravel et optimisant les emplois du temps grâce aux algorithmes génétiques. Le système vise à améliorer la productivité en organisant intelligemment les tâches et les horaires.'
+                        },
+                        tags: ['Laravel', 'Genetic Algorithms', 'Web Development', 'Optimization', 'Time Management']
+                    }
+                ],
+                currentLanguage: 'en',
+                currentSlide: 0
+            },
+            computed: {
+                filteredPortfolioItems() {
+                    if (this.currentFilter === 'All') return this.portfolioItems;
+                    return this.portfolioItems.filter(item => 
+                        item.tags.some(tag => tag.toLowerCase().includes(this.currentFilter.toLowerCase()))
+                    );
+                }
+            },
+            methods: {
+                toggleTheme() {
+                    this.isDarkMode = !this.isDarkMode;
+                    document.body.classList.toggle('dark');
+                    localStorage.setItem('darkMode', this.isDarkMode);
+                    
+                    // Update meta theme-color
+                    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+                    if (metaThemeColor) {
+                        metaThemeColor.setAttribute('content', this.isDarkMode ? '#0f172a' : '#ffffff');
+                    }
+                },
+                formatCategory(category) {
+                    // Convert camelCase to Title Case with Spaces
+                    const formatted = category.replace(/([A-Z])/g, ' $1')
+                        .replace(/^./, str => str.toUpperCase());
+                    
+                    // Special cases for acronyms
+                    const acronyms = {
+                        'ai': 'AI',
+                        'ml': 'ML',
+                        'mlops': 'MLOps'
+                    };
+                    
+                    return formatted.split(' ')
+                        .map(word => acronyms[word.toLowerCase()] || word)
+                        .join(' ');
+                },
+                toggleMobileMenu() {
+                    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+                },
+                filterPortfolioItems(filter) {
+                    this.currentFilter = filter;
+                },
+                loadMoreProjects() {
+                    // In a real app, this would load more projects from an API
+                    this.showNotification('Loaded more projects', 'success');
+                },
+                scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                },
+                submitContactForm() {
+                    // In a real app, this would send the form data to a server
+                    console.log('Form submitted:', this.contactForm);
+                    this.showNotification('Message sent successfully!', 'success');
+                    this.contactForm = {
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    };
+                },
+                showNotification(message, type) {
+                    this.notification = {
+                        show: true,
+                        type,
+                        message
+                    };
+                    setTimeout(() => {
+                        this.notification.show = false;
+                    }, 5000);
+                },
+                handleScroll() {
+                    // Header size effect
+                    this.isHeaderBig = window.scrollY < 100;
+                    
+                    // Back to top button visibility
+                    this.showBackToTop = window.scrollY > 300;
+                    
+                    // Current section detection for active nav link
+                    const sections = document.querySelectorAll('section');
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (window.scrollY >= sectionTop - 300 && window.scrollY < sectionTop + sectionHeight - 300) {
+                            this.currentSection = section.id;
+                        }
+                    });
+                },
+                toggleEducationDetails(index) {
+                    this.educationItems[index].showDetails = !this.educationItems[index].showDetails;
+                },
+                openProjectModal(project) {
+                    this.selectedProject = project;
+                    document.body.style.overflow = 'hidden';
+                },
+                closeProjectModal() {
+                    this.selectedProject = null;
+                    document.body.style.overflow = '';
+                },
+                toggleLanguage() {
+                    this.currentLanguage = this.currentLanguage === 'en' ? 'fr' : 'en';
+                    localStorage.setItem('language', this.currentLanguage);
+                },
+                toggleExperienceDetails(index) {
+                    Vue.set(this.experienceItems[index], 'showDetails', !this.experienceItems[index].showDetails);
+                },
+                goToSlide(index) {
+                    this.currentSlide = index;
+                    const track = document.querySelector('.testimonials-track');
+                    if (track) {
+                        const slideWidth = -100 * index;
+                        track.style.transform = `translateX(${slideWidth}%)`;
+                    }
+                },
+                nextSlide() {
+                    const totalSlides = Math.ceil(this.testimonialsItems.length / 3);
+                    this.currentSlide = (this.currentSlide + 1) % totalSlides;
+                    this.goToSlide(this.currentSlide);
+                },
+                prevSlide() {
+                    const totalSlides = Math.ceil(this.testimonialsItems.length / 3);
+                    this.currentSlide = (this.currentSlide - 1 + totalSlides) % totalSlides;
+                    this.goToSlide(this.currentSlide);
+                }
+            },
+            mounted() {
+                // Simulate loading
+                const interval = setInterval(() => {
+                    this.loadingProgress += 10;
+                    if (this.loadingProgress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            this.isLoaded = true;
+                            document.body.classList.add('loaded');
+                            
+                            // Initialize animations
+                            gsap.utils.toArray('.fade-in').forEach(el => {
+                                ScrollTrigger.create({
+                                    trigger: el,
+                                    start: "top 80%",
+                                    onEnter: () => el.classList.add('visible')
+                                });
+                            });
+                            
+                            // Add tilt effect to project cards
+                            VanillaTilt.init(document.querySelectorAll(".project-card"), {
+                                max: 5,
+                                speed: 400,
+                                glare: true,
+                                "max-glare": 0.2,
+                            });
+                        }, 500);
+                    }
+                }, 200);
+                
+                // Check for saved theme preference
+                const savedTheme = localStorage.getItem('darkMode');
+                if (savedTheme === 'true' || (savedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    this.isDarkMode = true;
+                    document.body.classList.add('dark');
+                }
+                
+                // Set up scroll event listener
+                window.addEventListener('scroll', this.handleScroll);
+                this.handleScroll();
+                
+                // Initialize GSAP animations
+                gsap.registerPlugin(ScrollTrigger);
+                
+                // Animate hero text
+                gsap.from(".hero-gradient", {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: "power3.out"
+                });
+                
+                // Animate hero buttons
+                gsap.from(".btn-primary, .btn-outline", {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: "power3.out",
+                    stagger: 0.2,
+                    delay: 0.3
+                });
+                
+                // Check for saved language preference
+                if (localStorage.getItem('language')) {
+                    this.currentLanguage = localStorage.getItem('language');
+                } else if (navigator.language.startsWith('fr')) {
+                    this.currentLanguage = 'fr';
+                }
+                
+                // Initialize Typed.js
+                new Typed('#typed-text', {
+                       strings: [
+                                  'AI Engineering Student',
+                                  'Machine Learning Engineer',
+                                  'Deep Learning Specialist',
+                                  'LLM and NLP Expert',
+                                  'Generative AI Innovator',
+                                  'Multi-Agent Systems Developer',
+                                  'Computer Vision Architect'
+                                  ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    backDelay: 2000,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|',
+                    cursorClassName: 'typed-cursor'
+                });
+                
+                // Custom cursor
+                const cursor = document.querySelector('.custom-cursor');
+                const cursorDot = document.querySelector('.custom-cursor-dot');
+                
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX - 10 + 'px';
+                    cursor.style.top = e.clientY - 10 + 'px';
+                    cursorDot.style.left = e.clientX - 3 + 'px';
+                    cursorDot.style.top = e.clientY - 3 + 'px';
+                });
+                
+                // Scroll animations
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+
+                // Initialize scroll animations for testimonials
+                const testimonialObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                document.querySelectorAll('.testimonial-card').forEach(el => {
+                    testimonialObserver.observe(el);
+                });
+            },
+            beforeDestroy() {
+                window.removeEventListener('scroll', this.handleScroll);
+            }
+        });
+
+        // Remove the duplicate carouselMethods object and app.methods assignment
+    </script>
+    <!-- Font Awesome pour l’icône -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+.bot-message {
+  background-color: #f1f1f1;
+  color: #000;
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+
+.user-message {
+  background-color: #e2f0ff;
+  color: #000; 
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+
+.typing-indicator {
+  color: #444; 
+}
+
+  #chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    max-height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+  }
+
+  .chatbot-header {
+    background-color: #4a6cf7;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chatbot-header .close-btn {
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .chatbot-messages {
+    height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 80%;
+  }
+
+  .user-message {
+    background-color: #e2f0ff;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+  }
+
+  .bot-message {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+  }
+
+  .chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #eee;
+  }
+
+  .chatbot-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+  }
+
+  .chatbot-input button {
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .typing-indicator {
+    margin-left: 15px;
+    font-style: italic;
+    color: #888;
+    display: none;
+  }
+</style>
+
+<!-- Bouton toggle -->
+<button id="chatbot-toggle">
+  <i class="fas fa-comments"></i>
+</button>
+
+<!-- Conteneur du chatbot -->
+<div id="chatbot-container">
+  <div class="chatbot-header">
+    <span>Assistant</span>
+    <span class="close-btn" id="chatbot-close">&times;</span>
+  </div>
+  <div class="chatbot-messages" id="chatbot-messages">
+    <div class="chat-message bot-message">
+      Bonjour ! Posez-moi une question sur le portfolio.
+    </div>
+  </div>
+  <div class="typing-indicator" id="typing-indicator">L'assistant écrit...</div>
+  <div class="chatbot-input">
+    <input type="text" id="user-input" placeholder="Posez votre question..." />
+    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- Script JS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('chatbot-toggle');
+    const chatbot = document.getElementById('chatbot-container');
+    const closeBtn = document.getElementById('chatbot-close');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    const messagesContainer = document.getElementById('chatbot-messages');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    const API_URL = 'http://localhost:5000/api/chat';
+
+    toggleBtn.addEventListener('click', () => {
+      chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
+      if (chatbot.style.display === 'flex') userInput.focus();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      chatbot.style.display = 'none';
+    });
+
+    sendBtn.addEventListener('click', sendMessage);
+
+    userInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (message.length === 0) return;
+
+      addMessage(message, 'user');
+      userInput.value = '';
+      typingIndicator.style.display = 'block';
+
+      fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          typingIndicator.style.display = 'none';
+          addMessage(data.response || 'Erreur serveur', 'bot');
+        })
+        .catch(() => {
+          typingIndicator.style.display = 'none';
+          addMessage("Erreur de connexion avec le serveur.", 'bot');
+        });
+    }
+
+    function addMessage(message, sender) {
+      const div = document.createElement('div');
+      div.classList.add('chat-message', sender === 'user' ? 'user-message' : 'bot-message');
+      div.textContent = message;
+      messagesContainer.appendChild(div);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+  });
+</script>
+
+</body>
+</html>
+

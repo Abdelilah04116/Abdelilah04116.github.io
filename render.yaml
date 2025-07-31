@@ -4,11 +4,11 @@ services:
     name: portfolio-api
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn web.api:app --bind 0.0.0.0:$PORT
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+    startCommand: gunicorn web.api:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.18
+        value: 3.11.7
       - key: GOOGLE_API_KEY
         sync: false  # À configurer manuellement dans Render
 
@@ -17,10 +17,10 @@ services:
     name: portfolio-streamlit
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
     startCommand: streamlit run web/app.py --server.port $PORT --server.address 0.0.0.0
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.18
+        value: 3.11.7
       - key: GOOGLE_API_KEY
         sync: false  # À configurer manuellement dans Render 

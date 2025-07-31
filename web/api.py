@@ -1,6 +1,6 @@
 import os
 import sys
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
 
@@ -11,12 +11,20 @@ from chatbot.chatbot_logic import PortfolioChatbot
 # Charger les variables d'environnement
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../assets')
 CORS(app)  # Permet les requêtes cross-origin
 
 # Initialiser le chatbot
 api_key = os.getenv("GOOGLE_API_KEY", "")
 chatbot = PortfolioChatbot(google_api_key=api_key)
+
+@app.route('/')
+def index():
+    return send_from_directory('..', 'index.html')
+
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('..', filename)
 
 @app.route('/api/chat', methods=['POST'])
 def chat():

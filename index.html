@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://your-portfolio-url.com">
     <meta name="theme-color" content="#ffffff">
     <title>Abdelilah Ourti | AI Engineer Portfolio</title>
-    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b82f6'/><text x='50' y='65' font-family='Arial, sans-serif' font-size='40' font-weight='bold' text-anchor='middle' fill='white'>AO</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1605,8 +1605,15 @@
         <!-- Preloader -->
         <div class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900 transition-all duration-500" v-if="!isLoaded">
             <div class="text-center">
-                <div class="w-24 h-24 mx-auto mb-6">
-                    <img src="assets/images/favicon.gif" alt="Loading" class="w-full h-full object-contain">
+                <div class="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                    <div class="relative">
+                        <!-- Logo AO -->
+                        <div class="text-4xl font-bold text-blue-500 mb-2">AO</div>
+                        <!-- Cercle décoratif -->
+                        <div class="absolute -bottom-1 -left-1 w-3 h-3 bg-blue-300 rounded-full flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="w-64 h-1 bg-gray-200 rounded-full overflow-hidden mx-auto">
                     <div class="h-full bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" :style="{width: loadingProgress + '%'}"></div>
@@ -1676,8 +1683,8 @@
                     <ul class="space-y-3">
                         <li class="flex items-center">
                             <i class="fas fa-envelope text-blue-500 mr-3"></i>
-                            <a href="mailto:AbdelilahOurti2018@gmail.com" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-                                AbdelilahOurti2018@gmail.com
+                            <a href="mailto:abdelilahourti@gmail.com" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                                abdelilahourti@gmail.com
                             </a>
                         </li>
                         <li class="flex items-center">
@@ -2384,9 +2391,9 @@
                                         </div>
                                         <div>
                                             <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-1">Email</h4>
-                                            <a href="mailto:AbdelilahOurti2018@gmail.com" 
+                                            <a href="mailto:abdelilahourti@gmail.com" 
                                                class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-                                                AbdelilahOurti2018@gmail.com
+                                                abdelilahourti@gmail.com
                                             </a>
                                         </div>
                                     </div>
@@ -2396,9 +2403,9 @@
                                         </div>
                                         <div>
                                             <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-1">Phone</h4>
-                                            <a href="tel:+212655798315" 
+                                            <a href="tel:+212770539777" 
                                                class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-                                                +212 655 798 315
+                                                +212 770539777
                                             </a>
                                         </div>
                                     </div>
@@ -2624,110 +2631,127 @@
                 },
                 experienceItems: [
                     {
-                    "date": "2023 - Present",
+                    "date": "2025   - Present",
                     "companyName": {
-                        "en": "ENIAD (National School of Artificial Intelligence and Digital)",
-                        "fr": "ENIAD (École Nationale de L'Intelligence Artificielle et du Digital)"
+                         en: 'CYGNN GROUP',
+                         fr: 'CYGNN GROUP'
                     },
                     "jobTitle": {
-                        "en": "AI and Deep Learning Engineer",
-                        "fr": "Ingénieur en IA et Deep Learning"
+                        "en": "AI Engineer specialising in multi-agents systems",
+                        "fr": "Ingénieur en IA specialiser dans les systèmes multi-agents"
                     },
                     "desc": {
-                        "en": "Specializing in the design and deployment of advanced Deep Learning models, Computer Vision pipelines, and Generative AI systems. Skilled in the full AI development lifecycle, from data preprocessing to deployment.",
-                        "fr": "Spécialisé dans la conception et le déploiement de modèles avancés de Deep Learning, de pipelines de vision par ordinateur et de systèmes d'IA générative. Maîtrise du cycle complet de développement de l'IA, du prétraitement des données jusqu'au déploiement."
+                        "en": "Developed an advanced multi-agent system for dynamic control of an intelligent web interface. Integrated specialized agents to analyze user queries, automate complex interactions, and coordinate diverse services through NLP, voice, and computation modules.",
+                        "fr": "Développement d’un système multi-agent avancé pour le pilotage dynamique d’une interface web intelligente. Intégration d’agents spécialisés capables d’analyser les requêtes utilisateur, automatiser les interactions complexes et coordonner des services variés via des modules NLP, voix et calcul."
                     },
                     "showDetails": false,
                     "projects": [
-                        {
-                        "title": {
-                            "en": "3D Dental Surface Reconstruction",
-                            "fr": "Reconstruction de Surface Dentaire 3D"
-                        },
-                        "description": {
-                            "en": "Designed a deep learning model to reconstruct 3D dental surfaces from 2D X-ray inputs using encoder-decoder architecture and volumetric rendering techniques. Deployed a demo with interactive 3D visualization.",
-                            "fr": "Conception d'un modèle de deep learning pour reconstruire des surfaces dentaires 3D à partir d'images de radiographie 2D en utilisant une architecture encodeur-décodeur et des techniques de rendu volumétrique. Déploiement d'une démo avec visualisation 3D interactive."
-                        }
-                        },
-                        {
-                        "title": {
-                            "en": "AI-Powered Tooth Type Classifier",
-                            "fr": "Classificateur de Type Dentaire avec IA"
-                        },
-                        "description": {
-                            "en": "Built and trained a CNN-based classifier to identify tooth types from 3D dental scans. Achieved over 95% accuracy on a custom-labeled dataset. Integrated results into a Streamlit dashboard for real-time inference.",
-                            "fr": "Création et entraînement d'un classificateur basé sur un CNN pour identifier les types de dents à partir de scans dentaires 3D. Précision supérieure à 95 % sur un jeu de données annoté manuellement. Intégration des résultats dans un tableau de bord Streamlit pour une inférence en temps réel."
-                        }
-                        }
+                            {
+                            "title": {
+                                "en": "Multi-Agent System for Web Interface Orchestration",
+                                "fr": "Système Multi-Agent pour le Pilotage d'une Interface Web"
+                            },
+                            "description": {
+                                "en": "Developed an advanced multi-agent system to orchestrate a smart web interface. Integrated task-specialized agents capable of analyzing user queries, automating complex workflows, and coordinating services through NLP, speech, and computation modules.",
+                                "fr": "Développement d’un système multi-agent avancé pour le pilotage d’une interface web intelligente. Intégration d’agents spécialisés capables d’analyser les requêtes utilisateur, d’automatiser des flux complexes et de coordonner des services via des modules NLP, vocaux et de calcul."
+                            }
+                            }
                     ],
                     "technologies": [
-                        "TensorFlow",
-                        "PyTorch",
-                        "OpenCV",
-                        "PyTorch3D",
-                        "Transformers",
-                        "CLIP",
-                        "Docker",
-                        "Kubernetes"
+                        "LangGraph",
+                        "LangChain",
+                        "FastAPI",
+                        "OpenAI API",
+                        "Hugging Face Transformers",
+                        "TTS/STT APIs (Google, Amazon Polly)",
+                        "Milvus",
+                        "Whisper",
+                        "FFmpeg",
                     ]
                     },
                     {
-                        date: '2024',
+                        date: '2025',
                         companyName: {
-                            en: '3D Smart Factory',
-                            fr: '3D Smart Factory'
+                            en: 'CYGNN GROUP',
+                            fr: 'CYGNN GROUP'
                         },
                         jobTitle: {
-                            en: 'ML Engineering Intern',
-                            fr: 'Stagiaire en Ingénierie ML'
+                            en: 'AI Engineering Specialist in RAG (Retrieval-Augmented Generation)',
+                            fr: 'Ingénierie IA spécialisée dans RAG (Retrieval-Augmented Generation)'
                         },
                         desc: {
-                            en: 'Developed a 3D classification solution achieving 97% accuracy, leveraging deep learning and 3D technologies for accurate object classification.',
-                            fr: 'Développement d\'une solution de classification 3D atteignant une précision de 97%, en utilisant le deep learning et des technologies 3D pour une classification précise des objets.'
-                        },
+                            en: 'Developed a multimodal RAG platform that integrates document ingestion, hybrid retrieval, and response generation from text, images, audio, and video.',
+                            fr: 'Développement d\'une plateforme RAG multimodale intégrant l\'ingestion de documents, la recherche hybride et la génération de réponses à partir de textes, images, audio et vidéos.'
+                          },
                         showDetails: false,
                         projects: [
                             {
                                 title: {
-                                    en: '3D Classification Solution',
-                                    fr: 'Solution de Classification 3D'
+                                    en: 'Multimodal RAG System',
+                                    fr: 'Système RAG Multimodal'
                                 },
                                 description: {
-                                    en: 'Designed and implemented a hybrid 3D classification model using TensorFlow and PyTorch3D, which significantly improved classification accuracy.',
-                                    fr: 'Conception et implémentation d\'un modèle hybride de classification 3D utilisant TensorFlow et PyTorch3D, ce qui a considérablement amélioré la précision de la classification.'
+                                    en: 'Designed and deployed a full-stack Retrieval-Augmented Generation system capable of handling multimodal data. Implemented automatic chunking, hybrid search (vector + keyword), and LLM-based generation through a web interface and REST API.',
+                                    fr: 'Conception et déploiement d\'un système RAG complet capable de gérer des données multimodales. Mise en œuvre de l\'extraction automatique, de la recherche hybride (vecteur + mot-clé) et de la génération basée sur des LLM via une interface web et une API REST.'
                                 }
                             }
                         ],
-                        technologies: ['TensorFlow', 'Keras', 'PyTorch3D']
+                        technologies: [
+                            'LangChain',
+                            'FastAPI',
+                            'Streamlit',
+                            'Hugging Face Transformers',
+                            'FAISS / Milvus',
+                            'OpenAI API',
+                            'CLIP / BLIP',
+                            'Whisper',
+                            'Tesseract',
+                            'Docker',
+                            'Kubernetes',
+                            'Nginx'
+                        ]
                     },
                     {
                         date: '2024',
                         companyName: {
-                            en: 'HGS-Hightech',
-                            fr: 'HGS-Hightech'
+                             en: 'SMART AUTOMATION TECHNOLOGIES',
+                             fr: 'SMART AUTOMATION TECHNOLOGIES'
                         },
                         jobTitle: {
                             en: 'Computer Vision Intern',
                             fr: 'Stagiaire en Vision par Ordinateur'
                         },
                         desc: {
-                            en: 'Developed a 360° visualization system using deep learning techniques and a web interface, enabling interactive 3D product visualization.',
-                            fr: 'Développement d\'un système de visualisation à 360° utilisant des techniques de deep learning et une interface web, permettant la visualisation interactive d\'un produit en 3D.'
+                            en: 'Designed a multi-agent conversational assistant to enhance customer loyalty through intelligent product recommendations on an e-commerce platform.',
+                            fr: 'Conception d\'un assistant conversationnel multi-agent pour améliorer la fidélisation client grâce à des recommandations intelligentes sur une plateforme e-commerce.'
                         },
                         showDetails: false,
                         projects: [
                             {
                                 title: {
-                                    en: '360° Visualization System',
-                                    fr: 'Système de Visualisation à 360°'
+                                   en: 'Conversational Agent for Smart Product Recommendation',
+                                   fr: 'Agent Conversationnel pour Recommandation Produit Intelligente'
                                 },
                                 description: {
-                                    en: 'Created an interactive 360° visualization system for product displays using deep learning and computer vision techniques.',
-                                    fr: 'Création d\'un système interactif de visualisation à 360° pour l\'affichage de produits, en utilisant des techniques de deep learning et de vision par ordinateur.'
+                                    en: 'Built an AI-powered chatbot based on a modular multi-agent architecture orchestrated with LangGraph. Delivered advanced personalization, proactive engagement, and seamless e-commerce integration with contextual memory and hybrid recommendation models.',
+                                    fr: 'Développement d\'un chatbot intelligent basé sur une architecture multi-agent modulaire orchestrée avec LangGraph. Fourniture d\'une personnalisation avancée, d\'un engagement proactif et d\'une intégration e-commerce fluide avec mémoire contextuelle et modèles de recommandation hybrides.'
                                 }
                             }
                         ],
-                        technologies: ['TensorFlow', 'Deep Learning', 'Web Interface']
+                        technologies: ['LangGraph',
+                                        'LangChain',
+                                        'GPT (OpenAI)',
+                                        'Sentence Transformers',
+                                        'FAISS',
+                                        'ChromaDB',
+                                        'FastAPI',
+                                        'Django',
+                                        'REST API',
+                                        'Docker',
+                                        'Streamlit',
+                                        'RGPD Compliance',
+                                        'JWT / OAuth2'
+                                    ]
                     },
 
                 ],
@@ -3037,9 +3061,9 @@
                             en: 'Article Generator with Data Flywheel',
                             fr: 'Générateur d\'Articles avec Data Flywheel'
                         },
-                        githubUrl: 'https://github.com/Ourti/article_generator',
+                        githubUrl: 'https://github.com/Abdelilah04116/AutoResearchFlow',
                         demoUrl: 'https://articlegenerator-mjivv4cekj2q9mtuud2usy.streamlit.app/',
-                        url: 'https://github.com/Ourti/article_generator',
+                        url: 'https://github.com/Abdelilah04116/AutoResearchFlow',
                         date: { 
                             en: 'May 4, 2025',
                             fr: '4 Mai 2025'
@@ -3115,13 +3139,13 @@
                     },
                     {
                         title: { 
-                            en: 'Sentiment Analysis Tool',
-                            fr: 'Outil d\'Analyse de Sentiments'
+                            en: 'Sentiment Analysis Tool at Commonshare',
+                            fr: 'Outil d\'Analyse de Sentiments au scien de Commonshare'
                         },
                         imgUrl: 'assets/images/Sentiment Analysis.png',
-                        url: 'https://github.com/Ourti/Customer-Reviews-Classification',
-                        githubUrl: 'https://github.com/Ourti/Customer-Reviews-Classification',
-                        demoUrl: 'https://customer-reviews-classification-az8wv9ajwr8ecea2taqzcl.streamlit.app/',
+                        url: 'https://github.com/Abdelilah04116/CSh',
+                        githubUrl: 'https://github.com/Abdelilah04116/CSh',
+                        demoUrl: 'https://github.com/Abdelilah04116/CSh',
                         date: { 
                             en: '2024',
                             fr: '2024'
@@ -3152,7 +3176,7 @@
                         },
                         tags: ['Deep Learning', 'Computer Vision', 'TensorFlow']
                     },
-                    {
+                    /*{
                         title: {
                             en: 'Time Management Web Application',
                             fr: 'Application Web de Gestion du Temps'
@@ -3171,7 +3195,7 @@
                             fr: 'Développement d\'une application web de gestion du temps, utilisant le framework Laravel et optimisant les emplois du temps grâce aux algorithmes génétiques. Le système vise à améliorer la productivité en organisant intelligemment les tâches et les horaires.'
                         },
                         tags: ['Laravel', 'Genetic Algorithms', 'Web Development', 'Optimization', 'Time Management']
-                    }
+                    }*/
                 ],
                 currentLanguage: 'en',
                 currentSlide: 0

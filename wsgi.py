@@ -9,13 +9,8 @@ sys.path.insert(0, web_path)
 # Charger les variables d'environnement
 load_dotenv()
 
-try:
-    # Importer l'application Flask
-    from api import app
-    print("✅ Flask app imported successfully")
-except ImportError as e:
-    print(f"❌ Error importing Flask app: {e}")
-    sys.exit(1)
+# Importer l'application Flask
+from api import app
 
 # Variable pour Gunicorn
 application = app

@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "description": "Portfolio personnel avec chatbot IA",
+  "repository": "https://github.com/Abdelilah04116/Abdelilah_ourti.github.io",
+  "keywords": ["python", "flask", "portfolio", "ai", "chatbot"],
+  "env": {
+    "GOOGLE_API_KEY": {
+      "description": "Clé API Google Gemini",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+} 

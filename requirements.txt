@@ -14,7 +14,7 @@ google-generativeai==0.3.2
 
 # Vector database and embeddings
 faiss-cpu==1.7.4
-numpy==1.23.5
+numpy==1.21.6
 
 # Document processing
 pypdf==3.17.4

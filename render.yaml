@@ -1,26 +1,12 @@
 services:
-  # Service Flask API
   - type: web
-    name: portfolio-api
+    name: portfolio
     env: python
     plan: free
-    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+    buildCommand: chmod +x build.sh && ./build.sh
     startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.7
       - key: GOOGLE_API_KEY
-        sync: false  # À configurer manuellement dans Render
-
-  # Service Streamlit (optionnel)
-  - type: web
-    name: portfolio-streamlit
-    env: python
-    plan: free
-    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
-    startCommand: streamlit run web/app.py --server.port $PORT --server.address 0.0.0.0
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.7
-      - key: GOOGLE_API_KEY
-        sync: false  # À configurer manuellement dans Render 
+        sync: false 

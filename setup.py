@@ -20,5 +20,5 @@ setup(
         "tiktoken>=0.5.0",
         "gunicorn>=20.1.0",
     ],
-    python_requires=">=3.11",
+    python_requires=">=3.9",
 ) 

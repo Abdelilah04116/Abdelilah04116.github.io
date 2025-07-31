@@ -3,12 +3,10 @@ services:
     name: portfolio
     env: python
     plan: free
-    buildCommand: |
-      chmod +x render-build.sh && ./render-build.sh
-      chmod +x render-deploy.sh && ./render-deploy.sh
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.7
+        value: 3.11.5
       - key: GOOGLE_API_KEY
         sync: false 

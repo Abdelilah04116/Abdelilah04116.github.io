@@ -1,0 +1,51 @@
+# Exclure les fichiers volumineux pour Vercel
+chatbot/vectorstore/
+*.faiss
+*.pkl
+*.pkl.gz
+*.h5
+*.hdf5
+*.model
+*.bin
+
+# Exclure les assets volumineux
+assets/images/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.ico
+
+# Exclure les dépendances locales
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Exclure les fichiers de développement
+.env
+.env.local
+*.log
+logs/
+
+# Exclure les fichiers de test
+test_*.py
+*_test.py
+tests/
+
+# Exclure la documentation
+docs/
+*.md
+!README.md
+
+# Exclure les scripts de déploiement
+deploy-*.sh
+deploy-*.ps1
+update_*.py
+test-*.py
+
+# Exclure les fichiers de configuration locaux
+.vercel
+.vercelignore 

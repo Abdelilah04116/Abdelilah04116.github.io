@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: portfolio-ourti
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    envVars:
+      - key: GOOGLE_API_KEY
+        value: AIzaSyAE_7Y0cA46UZxXa2vxToKkJcTBi8m97Rs 

@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "wsgi.py",
+      "src": "api/chat.py",
       "use": "@vercel/python"
     },
     {
@@ -13,18 +13,13 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "wsgi.py"
+      "dest": "/api/chat.py"
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ],
-  "functions": {
-    "wsgi.py": {
-      "maxDuration": 30
-    }
-  },
   "env": {
     "PYTHONPATH": "."
   }

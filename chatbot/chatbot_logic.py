@@ -4,6 +4,11 @@ from langchain.chains import RetrievalQA
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from chatbot.rag_pipeline import RAGPipeline
+import sys
+
+# Ajouter le répertoire parent au chemin pour importer portfolio_data
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from portfolio_data import get_portfolio_context
 
 load_dotenv()
 
@@ -11,6 +16,7 @@ class PortfolioChatbot:
     def __init__(self, google_api_key=None):
         self.api_key = google_api_key or os.getenv("GOOGLE_API_KEY")
         self.vectorstore_path = "chatbot/vectorstore"
+        self.portfolio_context = get_portfolio_context()
         self._load_vectorstore()
 
     def _load_vectorstore(self):
@@ -56,8 +62,24 @@ class PortfolioChatbot:
         )
 
     def get_answer(self, query: str):
-        result = self.qa_chain({"query": query})
-        return result["result"], []
+        # Créer un prompt enrichi avec le contexte du portfolio
+        enhanced_query = f"""
+        Contexte du portfolio d'Abdelilah Ourti:
+        {self.portfolio_context}
+        
+        Question de l'utilisateur: {query}
+        
+        Réponds de manière professionnelle et détaillée en te basant sur les informations du portfolio d'Abdelilah Ourti. 
+        Si la question concerne des informations qui ne sont pas dans le portfolio, dis-le poliment.
+        Réponds en français sauf si l'utilisateur pose la question en anglais.
+        """
+        
+        try:
+            result = self.qa_chain({"query": enhanced_query})
+            return result["result"], []
+        except Exception as e:
+            print(f"Erreur lors de la génération de la réponse: {e}")
+            return "Désolé, je n'ai pas pu traiter votre demande pour le moment. Pouvez-vous reformuler votre question ?", []
 
     def reset_conversation(self):
         # Aucun historique à gérer pour Gemini dans cette config

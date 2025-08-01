@@ -3609,7 +3609,7 @@
   </div>
   <div class="chatbot-messages" id="chatbot-messages">
     <div class="chat-message bot-message">
-      Bonjour ! Posez-moi une question sur le portfolio.
+      Bonjour ! Je suis l'assistant IA d'Abdelilah Ourti. Posez-moi une question sur son portfolio, ses compétences, ses projets ou son expérience professionnelle. Je peux vous renseigner sur ses technologies maîtrisées, ses réalisations et bien plus encore !
     </div>
   </div>
   <div class="typing-indicator" id="typing-indicator">L'assistant écrit...</div>
@@ -3630,7 +3630,7 @@
     const messagesContainer = document.getElementById('chatbot-messages');
     const typingIndicator = document.getElementById('typing-indicator');
 
-    const API_URL = 'http://localhost:5000/api/chat';
+    const API_URL = '/api/chat';
 
     toggleBtn.addEventListener('click', () => {
       chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
@@ -3662,14 +3662,24 @@
         },
         body: JSON.stringify({ message }),
       })
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
         .then((data) => {
           typingIndicator.style.display = 'none';
-          addMessage(data.response || 'Erreur serveur', 'bot');
+          if (data.error) {
+            addMessage(`Erreur: ${data.error}`, 'bot');
+          } else {
+            addMessage(data.response || 'Désolé, je n\'ai pas pu traiter votre demande.', 'bot');
+          }
         })
-        .catch(() => {
+        .catch((error) => {
           typingIndicator.style.display = 'none';
-          addMessage("Erreur de connexion avec le serveur.", 'bot');
+          console.error('Erreur chatbot:', error);
+          addMessage("Désolé, je ne peux pas répondre pour le moment. Vérifiez votre connexion ou réessayez plus tard.", 'bot');
         });
     }
 

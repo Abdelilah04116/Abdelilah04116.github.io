@@ -1,140 +1,96 @@
-# 🤖 Chatbot Portfolio - Abdelilah Ourti
+# Chatbot Portfolio - Mise à jour de la base de connaissances
 
-## 📋 Description
+## ✅ Données ajoutées avec succès
 
-Ce chatbot IA est intégré au portfolio d'Abdelilah Ourti et permet aux visiteurs de poser des questions sur son profil, ses compétences, ses projets et son expérience professionnelle.
+Les informations suivantes ont été intégrées à la base de connaissances du chatbot :
 
-## 🚀 Fonctionnalités
+### 📋 Informations personnelles
+- **Nom** : Abdelilah Ourti
+- **Adresse** : Marrakech, Morocco
+- **Téléphone** : +212770539777
+- **Email** : abdelilahourti@gmail.com
+- **GitHub** : https://github.com/Abdelilah04116
+- **Kaggle** : https://www.kaggle.com/abdelilahourti
 
-- **Interface intuitive** : Bouton de chat flottant sur le portfolio
-- **Réponses intelligentes** : Basées sur les données structurées du portfolio
-- **Support multilingue** : Réponses en français et anglais
-- **Contexte enrichi** : Utilise toutes les informations du portfolio
-- **API REST** : Endpoint `/api/chat` pour les requêtes
+### 🎓 Formation académique
+1. **Cycle Ingénieur en Intelligence Artificielle** (2023 – Présent)
+   - École Nationale de l'Intelligence Artificielle et du Digital (ENIAD), Berkane
+   - Formation approfondie en IA, ML et Data Science
+   - Application à des cas concrets avec des partenaires industriels
 
-## 🏗️ Architecture
+2. **DEUST en Mathématiques, Informatique et Physique** (2021 – 2023)
+   - Faculté des Sciences et Techniques, Errachidia
+   - Algorithmes, programmation, algèbre linéaire, analyse mathématique, statistiques
 
-### Fichiers principaux :
-- `portfolio_data.py` : Données structurées du portfolio
-- `chatbot/chatbot_logic.py` : Logique du chatbot avec Google Gemini
-- `web/api.py` : API Flask pour le chatbot
-- `index.html` : Interface utilisateur intégrée
+### 💼 Projets professionnels récents
+1. **Assistant IA basé sur un LLM (RAG)** - 2025
+   - Pipeline RAG avec Ollama
+   - Prétraitement et génération d'embeddings
+   - API REST avec FastAPI pour QA contextuelle
 
-### Technologies utilisées :
-- **Google Gemini 2.0 Flash** : Modèle de langage
-- **LangChain** : Framework pour les applications IA
-- **FAISS** : Base de données vectorielle
-- **Flask** : API REST
-- **Vue.js** : Interface utilisateur
+2. **Segmentation des clients pour e-commerce** - 2024
+   - Clustering avec DBSCAN, K-means
+   - Encodage de variables catégorielles
+   - Évaluation par Silhouette Score et Indice de Davies-Bouldin
 
-## 🔧 Configuration
+3. **Développement d'un modèle de scoring** - 2024
+   - Encodage des variables
+   - Modèles linéaires et non linéaires
+   - Optimisation d'hyperparamètres
 
-### Variables d'environnement :
+4. **Classification de Fake News** - 2024
+   - Nettoyage texte (Tokenization, Lemmatization)
+   - TF-IDF, Word Embeddings
+   - SVM, Random Forest, Naïve Bayes
+
+### 🛠️ Compétences techniques par niveau
+
+**Expert :**
+Python, NumPy, Pandas, Matplotlib, TensorFlow, Keras, SQL, Scikit-learn
+
+**Avancé :**
+Java, Talend, Power BI, Git, FastAPI, Crewai, LangChain, LangGraph
+
+**Intermédiaire :**
+BERT, GPT, NLTK, spaCy, Transformer models, fine-tuning
+
+### 🌍 Langues
+- **Français** : B2
+- **Anglais** : B1
+
+### 🎯 Soft Skills
+Leadership, Résolution de problèmes, Gestion de projet
+
+## 📁 Fichiers mis à jour
+
+1. **`portfolio_data.py`** - Données structurées du portfolio
+2. **`chatbot/docs/projets.txt`** - Base de connaissances du chatbot enrichie
+3. **`update_chatbot_knowledge_simple.py`** - Script de vérification
+
+## 🚀 Utilisation
+
+Le chatbot peut maintenant répondre à des questions sur :
+- ✅ Formation et parcours académique
+- ✅ Projets professionnels récents
+- ✅ Compétences techniques détaillées
+- ✅ Expérience professionnelle
+- ✅ Témoignages et références
+- ✅ Informations de contact et liens
+
+## 📊 Statistiques
+
+- **Taille de la base de connaissances** : 9,849 caractères
+- **Nombre de projets documentés** : 12 projets + 4 projets professionnels récents
+- **Nombre de témoignages** : 6 témoignages
+- **Compétences techniques** : 3 niveaux (Expert, Avancé, Intermédiaire)
+
+## 🔄 Mise à jour
+
+Pour vérifier que les données sont bien présentes :
 ```bash
-GOOGLE_API_KEY=AIzaSyAE_7Y0cA46UZxXa2vxToKkJcTBi8m97Rs
+python update_chatbot_knowledge_simple.py
 ```
 
-### Installation des dépendances :
-```bash
-pip install -r requirements.txt
-```
+---
 
-## 🧪 Test du chatbot
-
-Pour tester le chatbot localement :
-
-```bash
-python test_chatbot.py
-```
-
-## 📡 API Endpoints
-
-### POST `/api/chat`
-Envoie une question au chatbot et reçoit une réponse.
-
-**Request :**
-```json
-{
-  "message": "Quelles sont les compétences d'Abdelilah ?"
-}
-```
-
-**Response :**
-```json
-{
-  "response": "Abdelilah Ourti maîtrise plusieurs technologies..."
-}
-```
-
-## 💬 Exemples de questions
-
-Le chatbot peut répondre à des questions comme :
-
-- "Quel est le nom complet d'Abdelilah ?"
-- "Quelles sont ses compétences en programmation ?"
-- "Parle-moi de ses projets principaux"
-- "Quelle est son expérience professionnelle ?"
-- "Quels sont les témoignages sur son travail ?"
-- "Quelles technologies maîtrise-t-il ?"
-- "Où a-t-il étudié ?"
-- "Combien de projets a-t-il réalisés ?"
-
-## 🎯 Données indexées
-
-Le chatbot a accès à toutes les informations du portfolio :
-
-- **Informations personnelles** : Nom, titre, formation, expérience
-- **Compétences** : Langages de programmation, frameworks, outils
-- **Projets** : Descriptions, technologies utilisées, liens GitHub
-- **Expérience professionnelle** : Postes, entreprises, périodes
-- **Témoignages** : Avis de collègues, professeurs, managers
-- **Contact** : Email, téléphone, réseaux sociaux
-
-## 🚀 Déploiement
-
-Le chatbot est automatiquement déployé avec le portfolio sur Render :
-
-1. **Build Command** : `pip install -r requirements.txt`
-2. **Start Command** : `gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120`
-3. **Variables d'environnement** : `GOOGLE_API_KEY` configurée
-
-## 🔒 Sécurité
-
-- La clé API Google est stockée dans les variables d'environnement
-- Validation des entrées utilisateur
-- Gestion des erreurs robuste
-- Limitation des requêtes (timeout 120s)
-
-## 📱 Interface utilisateur
-
-Le chatbot apparaît comme un bouton flottant en bas à droite du portfolio. L'interface inclut :
-
-- **Bouton toggle** : Ouvre/ferme le chat
-- **Zone de messages** : Historique des conversations
-- **Indicateur de frappe** : "L'assistant écrit..."
-- **Zone de saisie** : Pour poser des questions
-- **Bouton d'envoi** : Envoie la question
-
-## 🎨 Personnalisation
-
-Le style du chatbot peut être modifié dans le CSS de `index.html` :
-
-```css
-#chatbot-toggle {
-  /* Style du bouton flottant */
-}
-
-#chatbot-container {
-  /* Style du conteneur principal */
-}
-
-.chat-message {
-  /* Style des messages */
-}
-```
-
-## 📞 Support
-
-Pour toute question ou problème avec le chatbot, contactez Abdelilah Ourti :
-- Email : abdelilahourti@gmail.com
-- GitHub : https://github.com/Abdelilah04116 
+*Dernière mise à jour : $(date)* 

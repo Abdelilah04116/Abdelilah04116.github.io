@@ -1,5 +1,5 @@
 Projet 1 : Développement d'une application de reconnaissance d'images dentaires  
-- Description : Création d’un modèle de deep learning pour détecter et classer les dents à partir d’images médicales.  
+- Description : Création d'un modèle de deep learning pour détecter et classer les dents à partir d'images médicales.  
 - Technologies : Python, TensorFlow, OpenCV  
 - Résultat : Précision élevée sur un dataset annoté, interface utilisateur pour visualisation.
 
@@ -8,32 +8,32 @@ Projet 2 : Création d'un chatbot intelligent pour portfolio (LLM + RAG)
 - Technologies : LangChain, Hugging Face, FAISS, Streamlit  
 - Fonctionnalités : Recherche documentaire sur mes projets, réponses contextuelles, intégration GitHub.
 
-Projet 3 : Classification 3D d’objets à partir d’images  
-- Description : Analyse et classification d’objets 3D à partir d’images multi-vues.  
+Projet 3 : Classification 3D d'objets à partir d'images  
+- Description : Analyse et classification d'objets 3D à partir d'images multi-vues.  
 - Technologies : PyTorch3D, Keras, OpenCV  
-- Résultat : Précision de 97%, utilisée pour l’inspection industrielle.
+- Résultat : Précision de 97%, utilisée pour l'inspection industrielle.
 
-Projet 4 : Visualisation interactive 360° d’objets  
-- Description : Interface web pour l’exploration d’un objet via une rotation fluide.  
+Projet 4 : Visualisation interactive 360° d'objets  
+- Description : Interface web pour l'exploration d'un objet via une rotation fluide.  
 - Technologies : JavaScript, Flask, HTML/CSS, Deep Learning  
-- Cas d’usage : Présentation interactive de produits ou objets médicaux.
+- Cas d'usage : Présentation interactive de produits ou objets médicaux.
 
-Projet 5 : Génération d’emplois du temps avec algorithmes génétiques  
-- Description : Système automatisé pour la création d’emplois du temps optimisés.  
+Projet 5 : Génération d'emplois du temps avec algorithmes génétiques  
+- Description : Système automatisé pour la création d'emplois du temps optimisés.  
 - Technologies : Python, Algorithmes génétiques  
 - Objectif : Respect des contraintes pédagogiques et logistiques.
 
 Projet 6 : Article Generator avec Data Flywheel et Multi-Agent System  
-- Description : Système de génération d’articles basé sur une architecture multi-agent et un data flywheel.  
+- Description : Système de génération d'articles basé sur une architecture multi-agent et un data flywheel.  
 - Technologies : NLP, Semantic Search, Generative AI, Streamlit  
 - Objectif : Amélioration continue de la qualité des contenus par retour utilisateur.
 
 Projet 7 : Intelligent Chatbot pour ENIAD  
-- Description : Chatbot intelligent pour faciliter la communication académique des étudiants d’ENIAD.  
+- Description : Chatbot intelligent pour faciliter la communication académique des étudiants d'ENIAD.  
 - Technologies : RAG, HiFT, Q-LoRA, NLP, Machine Learning  
 - Particularité : Architecture fine-tunée avec génération augmentée par récupération.
 
-Projet 8 : Génération automatisée d’articles avec CrewAI et RAG  
+Projet 8 : Génération automatisée d'articles avec CrewAI et RAG  
 - Description : Intégration de CrewAI, LLMs et vector databases pour une génération contextuelle automatisée.  
 - Technologies : LangChain, RAG, CrewAI, FAISS  
 - Objectif : Automatiser la création de contenu pertinent et structuré.
@@ -43,17 +43,110 @@ Projet 9 : Système BI pour la surveillance des ventes de véhicules
 - Technologies : Power BI, Data Analysis, Dashboards, KPIs  
 - Objectif : Aider à la prise de décision grâce à des visualisations interactives.
 
-Projet 10 : Outil d’analyse de sentiments  
+Projet 10 : Outil d'analyse de sentiments  
 - Description : Application de NLP pour classifier les sentiments dans les avis clients.  
 - Technologies : RoBERTa, XLNet, PyTorch, Streamlit  
-- Objectif : Comprendre l’opinion client avec des modèles de pointe.
+- Objectif : Comprendre l'opinion client avec des modèles de pointe.
 
 Projet 11 : Système de reconnaissance de fleurs  
-- Description : Classificateur d’images temps réel pour fleurs basé sur des CNN.  
+- Description : Classificateur d'images temps réel pour fleurs basé sur des CNN.  
 - Technologies : TensorFlow, Computer Vision, Deep Learning  
 - Résultat : Précision de 95%, application éducative et botanique.
 
 Projet 12 : Application web de gestion du temps  
-- Description : Outil d’optimisation de tâches via algorithmes génétiques et Laravel.  
+- Description : Outil d'optimisation de tâches via algorithmes génétiques et Laravel.  
 - Technologies : Laravel, Genetic Algorithms, Web Development  
 - Objectif : Améliorer la productivité personnelle par organisation intelligente.
+
+=== INFORMATIONS PERSONNELLES ET PROFESSIONNELLES ===
+
+FORMATION ACADÉMIQUE :
+- Cycle Ingénieur en Intelligence Artificielle (2023 – Présent)
+  École Nationale de l'Intelligence Artificielle et du Digital (ENIAD), Berkane
+  Formation approfondie en IA, ML et Data Science
+  Application à des cas concrets avec des partenaires industriels
+
+- DEUST en Mathématiques, Informatique et Physique (2021 – 2023)
+  Faculté des Sciences et Techniques, Errachidia
+  Algorithmes, programmation, algèbre linéaire, analyse mathématique, statistiques
+
+PROJETS PROFESSIONNELS RÉCENTS :
+
+Assistant IA basé sur un LLM (RAG) - 2025
+- Pipeline RAG avec Ollama
+- Prétraitement et génération d'embeddings
+- API REST avec FastAPI pour QA contextuelle
+
+Segmentation des clients pour e-commerce - 2024
+- Clustering avec DBSCAN, K-means
+- Encodage de variables catégorielles
+- Évaluation par Silhouette Score et Indice de Davies-Bouldin
+
+Développement d'un modèle de scoring - 2024
+- Encodage des variables
+- Modèles linéaires et non linéaires
+- Optimisation d'hyperparamètres
+
+Classification de Fake News - 2024
+- Nettoyage texte (Tokenization, Lemmatization)
+- TF-IDF, Word Embeddings
+- SVM, Random Forest, Naïve Bayes
+
+COMPÉTENCES TECHNIQUES PAR NIVEAU :
+
+Expert :
+Python, NumPy, Pandas, Matplotlib, TensorFlow, Keras, SQL, Scikit-learn
+
+Avancé :
+Java, Talend, Power BI, Git, FastAPI, Crewai, LangChain, LangGraph
+
+Intermédiaire :
+BERT, GPT, NLTK, spaCy, Transformer models, fine-tuning
+
+LANGUES :
+- Français : B2
+- Anglais : B1
+
+SOFT SKILLS :
+Leadership, Résolution de problèmes, Gestion de projet
+
+EXPÉRIENCE PROFESSIONNELLE :
+
+AI Engineer specialising in multi-agents systems - CYGNN GROUP (2025 - Présent)
+Développement d'un système multi-agent avancé pour le contrôle dynamique d'une interface web intelligente. Intégration d'agents spécialisés pour analyser les requêtes utilisateur, automatiser les interactions complexes et coordonner divers services via des modules NLP, voix et calcul.
+Technologies : LangGraph, LangChain, FastAPI, OpenAI API, Hugging Face Transformers, TTS/STT APIs, Milvus, Whisper, FFmpeg
+
+AI Engineering Specialist in RAG (Retrieval-Augmented Generation) - CYGNN GROUP (2025)
+Développement d'une plateforme RAG multimodale qui intègre l'ingestion de documents, la récupération hybride et la génération de réponses à partir de texte, images, audio et vidéo.
+Technologies : LangChain, FastAPI, Streamlit, Hugging Face Transformers, FAISS / Milvus, OpenAI API, CLIP / BLIP, Whisper, Tesseract, Docker, Kubernetes, Nginx
+
+AI Engineer - SMART AUTOMATION TECHNOLOGIES (2024)
+Conception d'un assistant conversationnel multi-agent pour améliorer la fidélisation client grâce à des recommandations de produits intelligentes sur une plateforme e-commerce.
+Technologies : LangGraph, LangChain, GPT (OpenAI), Sentence Transformers, FAISS, ChromaDB, FastAPI, Django, REST API, Docker, Streamlit, RGPD Compliance, JWT / OAuth2
+
+PROJETS PRINCIPAUX :
+
+Automated Article Generation with CrewAI & RAG
+Développement d'un système automatisé de recherche et génération d'articles utilisant CrewAI pour l'orchestration des tâches et RAG pour la récupération d'informations. Intégration de multiples agents IA pour la recherche, l'écriture et la vérification des faits.
+Technologies : CrewAI, LangChain, OpenAI API, FAISS, Streamlit, Pandas, BeautifulSoup
+GitHub : https://github.com/Abdelilah04116/AutoResearchFlow
+Demo : https://articlegenerator-mjivv4cekj2q9mtuud2usy.streamlit.app/
+
+Sentiment Analysis Tool at Commonshare
+Construction d'un outil d'analyse de sentiments pour la classification des avis clients utilisant des techniques de deep learning.
+Technologies : Deep Learning, Computer Vision, TensorFlow
+GitHub : https://github.com/Abdelilah04116/CSh
+
+TÉMOIGNAGES :
+
+Youssef (Professeur) : "J'ai eu l'opportunité d'enseigner à Abdelilah Ourti pendant ses études académiques. Tout au long du cours, il a fait preuve de constance, de sérieux et d'une bonne compréhension des concepts clés abordés. Il a terminé ses devoirs à temps et participé régulièrement aux discussions en classe. Abdelilah a une base solide dans son domaine et montre une volonté d'apprendre et de s'améliorer. Il travaille bien à la fois de manière indépendante et en équipe, et je crois qu'il a le potentiel de grandir davantage dans sa carrière."
+
+Houda (Professeur) : "Abdelilah est un étudiant sérieux et l'un des individus les plus dévoués et concentrés que j'ai rencontrés. Son engagement envers l'apprentissage et la croissance personnelle est vraiment admirable. Je lui souhaite le meilleur dans ses futures entreprises."
+
+Hamza (Manager Direct) : "Abdelilah a démontré des compétences techniques exceptionnelles et une forte éthique de travail pendant son temps avec nous. Sa capacité à apprendre rapidement de nouvelles technologies et à les appliquer efficacement était impressionnante. Il a constamment livré un travail de haute qualité et était un membre d'équipe précieux."
+
+Adama (Camarade de classe) : "Dans nos cours d'IA, j'ai vu du courage et de la détermination chez Abdelilah. De plus, nous avons travaillé sur le même projet, où il était mon scrum master. Il a travaillé jusqu'à ce que le projet soit terminé. J'apprécie son esprit analytique. Je le recommande fortement pour son sérieux et son dévouement."
+
+Yassine (Camarade de classe) : "J'ai eu la chance d'étudier avec Abdelilah à l'École Nationale de l'Intelligence Artificielle et de la Numérisation, et il a toujours impressionné par son sérieux, sa curiosité et son esprit innovant. Non seulement il excelle techniquement, mais il a aussi d'excellentes compétences de communication et des qualités de leadership."
+
+Oussama (Membre d'équipe) : "J'ai eu le plaisir de travailler avec Abdelilah Ourti dans la même équipe, où il a montré une expertise brillante en IA et Machine Learning. Il était excellent pour organiser de tels projets informatiques complexes, développant des flux et des objectifs clairs. Abdelilah créerait des présentations animées du genre le plus vivant et des rapports de documentation de la plus haute qualité ; ceux-ci faisaient en fait partie des livrables de notre projet. Ses compétences en résolution de problèmes, son attention aux détails et sa capacité à travailler sous pression étaient exceptionnelles."

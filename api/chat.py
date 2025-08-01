@@ -1,8 +1,5 @@
 import json
 import os
-from http.server import BaseHTTPRequestHandler
-from urllib.parse import parse_qs, urlparse
-import time
 
 # Données du portfolio intégrées directement
 PORTFOLIO_DATA = {
@@ -114,37 +111,40 @@ def generate_response(user_message):
     else:
         return f"Bonjour ! Je suis {PORTFOLIO_DATA['name']}, {PORTFOLIO_DATA['title']}. Je peux vous parler de mes compétences, projets, formation et expérience. Que souhaitez-vous savoir ?"
 
-class ChatbotHandler(BaseHTTPRequestHandler):
-    def do_OPTIONS(self):
-        """Gérer les requêtes CORS preflight"""
-        self.send_response(200)
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-        self.end_headers()
+def handler(request, context):
+    """Handler principal pour Vercel"""
+    # Headers CORS
+    headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Content-Type': 'application/json'
+    }
     
-    def do_GET(self):
-        """Gérer les requêtes GET"""
-        parsed_url = urlparse(self.path)
-        path = parsed_url.path
-        
-        self.send_response(200)
-        self.send_header('Content-Type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.end_headers()
+    # Gérer les requêtes OPTIONS (CORS preflight)
+    if request.method == 'OPTIONS':
+        return {
+            'statusCode': 200,
+            'headers': headers,
+            'body': ''
+        }
+    
+    # Gérer les requêtes GET
+    if request.method == 'GET':
+        path = request.path
         
         if path == '/api/health':
             response = {
                 'status': 'healthy',
                 'message': 'Chatbot API is running',
-                'version': '3.0.0',
+                'version': '4.0.0',
                 'optimized': True,
                 'size': 'ultra-minimal-no-deps'
             }
         elif path == '/api/info':
             response = {
                 'name': f"{PORTFOLIO_DATA['name']} Chatbot",
-                'version': '3.0.0',
+                'version': '4.0.0',
                 'description': 'Chatbot IA ultra-minimal sans dépendances',
                 'features': [
                     'Réponses sur le profil professionnel',
@@ -172,21 +172,24 @@ class ChatbotHandler(BaseHTTPRequestHandler):
                 'projets': PORTFOLIO_DATA['projets']
             }
         else:
-            response = {'error': 'Endpoint not found'}
-            self.send_response(404)
+            return {
+                'statusCode': 404,
+                'headers': headers,
+                'body': json.dumps({'error': 'Endpoint not found'}, ensure_ascii=False)
+            }
         
-        self.wfile.write(json.dumps(response, ensure_ascii=False).encode('utf-8'))
+        return {
+            'statusCode': 200,
+            'headers': headers,
+            'body': json.dumps(response, ensure_ascii=False)
+        }
     
-    def do_POST(self):
-        """Gérer les requêtes POST pour le chatbot"""
-        if self.path == '/api/chat':
+    # Gérer les requêtes POST
+    elif request.method == 'POST':
+        if request.path == '/api/chat':
             try:
-                # Lire le contenu de la requête
-                content_length = int(self.headers.get('Content-Length', 0))
-                post_data = self.rfile.read(content_length)
-                
                 # Parser le JSON
-                data = json.loads(post_data.decode('utf-8'))
+                data = json.loads(request.body)
                 user_message = data.get('message', '')
                 
                 # Générer la réponse
@@ -196,41 +199,36 @@ class ChatbotHandler(BaseHTTPRequestHandler):
                 response = {
                     'response': response_text,
                     'status': 'success',
-                    'version': '3.0.0'
+                    'version': '4.0.0'
                 }
                 
-                self.send_response(200)
-                self.send_header('Content-Type', 'application/json')
-                self.send_header('Access-Control-Allow-Origin', '*')
-                self.end_headers()
-                
-                self.wfile.write(json.dumps(response, ensure_ascii=False).encode('utf-8'))
+                return {
+                    'statusCode': 200,
+                    'headers': headers,
+                    'body': json.dumps(response, ensure_ascii=False)
+                }
                 
             except Exception as e:
                 error_response = {
                     'error': 'Erreur interne du serveur',
                     'details': str(e)
                 }
-                self.send_response(500)
-                self.send_header('Content-Type', 'application/json')
-                self.send_header('Access-Control-Allow-Origin', '*')
-                self.end_headers()
-                self.wfile.write(json.dumps(error_response, ensure_ascii=False).encode('utf-8'))
+                return {
+                    'statusCode': 500,
+                    'headers': headers,
+                    'body': json.dumps(error_response, ensure_ascii=False)
+                }
         else:
-            self.send_response(404)
-            self.send_header('Content-Type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            self.wfile.write(json.dumps({'error': 'Endpoint not found'}, ensure_ascii=False).encode('utf-8'))
-
-# Point d'entrée pour Vercel
-def handler(request, context):
-    """Handler pour Vercel serverless functions"""
-    return ChatbotHandler()
-
-# Pour les tests locaux
-if __name__ == '__main__':
-    from http.server import HTTPServer
-    server = HTTPServer(('localhost', 8000), ChatbotHandler)
-    print("Serveur démarré sur http://localhost:8000")
-    server.serve_forever() 
+            return {
+                'statusCode': 404,
+                'headers': headers,
+                'body': json.dumps({'error': 'Endpoint not found'}, ensure_ascii=False)
+            }
+    
+    # Méthode non supportée
+    else:
+        return {
+            'statusCode': 405,
+            'headers': headers,
+            'body': json.dumps({'error': 'Method not allowed'}, ensure_ascii=False)
+        } 

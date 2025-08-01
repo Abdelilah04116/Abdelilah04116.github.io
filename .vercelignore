@@ -1,5 +1,6 @@
-# Exclure les fichiers volumineux pour Vercel
-chatbot/vectorstore/
+# Exclure TOUS les fichiers volumineux pour Vercel
+chatbot/
+assets/
 *.faiss
 *.pkl
 *.pkl.gz
@@ -7,15 +8,15 @@ chatbot/vectorstore/
 *.hdf5
 *.model
 *.bin
-
-# Exclure les assets volumineux
-assets/images/
 *.jpg
 *.jpeg
 *.png
 *.gif
 *.svg
 *.ico
+*.pdf
+*.zip
+*.tar.gz
 
 # Exclure les dépendances locales
 venv/
@@ -30,22 +31,31 @@ __pycache__/
 *.log
 logs/
 
-# Exclure les fichiers de test
+# Exclure les fichiers de test et scripts
 test_*.py
 *_test.py
 tests/
+deploy-*.sh
+deploy-*.ps1
+update_*.py
+test-*.py
 
 # Exclure la documentation
 docs/
 *.md
 !README.md
 
-# Exclure les scripts de déploiement
-deploy-*.sh
-deploy-*.ps1
-update_*.py
-test-*.py
-
 # Exclure les fichiers de configuration locaux
 .vercel
-.vercelignore 
+.vercelignore
+
+# Exclure les fichiers de données volumineux
+portfolio_data.py
+portfolio_data_vercel.py
+chatbot/docs/
+chatbot/vectorstore/
+
+# Exclure les fichiers de déploiement
+Procfile
+wsgi.py
+web/ 

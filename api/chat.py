@@ -1,13 +1,8 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+import json
 import os
+from http.server import BaseHTTPRequestHandler
+from urllib.parse import parse_qs, urlparse
 import time
-
-app = Flask(__name__)
-CORS(app)
-
-# Configuration pour Vercel (timeout 30 secondes)
-VERCEL_TIMEOUT = 30
 
 # Données du portfolio intégrées directement
 PORTFOLIO_DATA = {
@@ -119,89 +114,123 @@ def generate_response(user_message):
     else:
         return f"Bonjour ! Je suis {PORTFOLIO_DATA['name']}, {PORTFOLIO_DATA['title']}. Je peux vous parler de mes compétences, projets, formation et expérience. Que souhaitez-vous savoir ?"
 
-@app.route('/api/chat', methods=['POST'])
-def chat():
-    """Endpoint pour le chatbot"""
-    start_time = time.time()
+class ChatbotHandler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        """Gérer les requêtes CORS preflight"""
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
     
-    try:
-        data = request.get_json()
+    def do_GET(self):
+        """Gérer les requêtes GET"""
+        parsed_url = urlparse(self.path)
+        path = parsed_url.path
         
-        if not data or 'message' not in data:
-            return jsonify({'error': 'Message requis'}), 400
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
         
-        user_message = data['message']
+        if path == '/api/health':
+            response = {
+                'status': 'healthy',
+                'message': 'Chatbot API is running',
+                'version': '3.0.0',
+                'optimized': True,
+                'size': 'ultra-minimal-no-deps'
+            }
+        elif path == '/api/info':
+            response = {
+                'name': f"{PORTFOLIO_DATA['name']} Chatbot",
+                'version': '3.0.0',
+                'description': 'Chatbot IA ultra-minimal sans dépendances',
+                'features': [
+                    'Réponses sur le profil professionnel',
+                    'Informations sur les compétences',
+                    'Détails des projets',
+                    'Contact et formation',
+                    'Ultra-minimal sans Flask'
+                ],
+                'optimized_for_vercel': True,
+                'no_external_dependencies': True
+            }
+        elif path == '/api/profile':
+            response = {
+                'personal_info': {
+                    'name': PORTFOLIO_DATA['name'],
+                    'title': PORTFOLIO_DATA['title'],
+                    'specialization': PORTFOLIO_DATA['specialization'],
+                    'email': PORTFOLIO_DATA['email'],
+                    'github': PORTFOLIO_DATA['github'],
+                    'location': PORTFOLIO_DATA['location']
+                },
+                'formation': PORTFOLIO_DATA['formation'],
+                'competences': PORTFOLIO_DATA['competences'],
+                'experience': PORTFOLIO_DATA['experience'],
+                'projets': PORTFOLIO_DATA['projets']
+            }
+        else:
+            response = {'error': 'Endpoint not found'}
+            self.send_response(404)
         
-        # Vérifier le timeout
-        if time.time() - start_time > VERCEL_TIMEOUT:
-            return jsonify({'error': 'Timeout - requête trop longue'}), 408
-        
-        # Générer la réponse
-        response = generate_response(user_message)
-        
-        # Vérifier le timeout final
-        if time.time() - start_time > VERCEL_TIMEOUT:
-            return jsonify({'error': 'Timeout - requête trop longue'}), 408
-        
-        return jsonify({
-            'response': response,
-            'status': 'success',
-            'execution_time': round(time.time() - start_time, 2)
-        })
-        
-    except Exception as e:
-        return jsonify({
-            'error': 'Erreur interne du serveur',
-            'details': str(e),
-            'execution_time': round(time.time() - start_time, 2)
-        }), 500
+        self.wfile.write(json.dumps(response, ensure_ascii=False).encode('utf-8'))
+    
+    def do_POST(self):
+        """Gérer les requêtes POST pour le chatbot"""
+        if self.path == '/api/chat':
+            try:
+                # Lire le contenu de la requête
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length)
+                
+                # Parser le JSON
+                data = json.loads(post_data.decode('utf-8'))
+                user_message = data.get('message', '')
+                
+                # Générer la réponse
+                response_text = generate_response(user_message)
+                
+                # Préparer la réponse
+                response = {
+                    'response': response_text,
+                    'status': 'success',
+                    'version': '3.0.0'
+                }
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                
+                self.wfile.write(json.dumps(response, ensure_ascii=False).encode('utf-8'))
+                
+            except Exception as e:
+                error_response = {
+                    'error': 'Erreur interne du serveur',
+                    'details': str(e)
+                }
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps(error_response, ensure_ascii=False).encode('utf-8'))
+        else:
+            self.send_response(404)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps({'error': 'Endpoint not found'}, ensure_ascii=False).encode('utf-8'))
 
-@app.route('/api/health', methods=['GET'])
-def health_check():
-    """Endpoint de vérification de santé"""
-    return jsonify({
-        'status': 'healthy',
-        'message': 'Chatbot API is running',
-        'version': '2.0.0',
-        'optimized': True,
-        'size': 'ultra-minimal'
-    })
+# Point d'entrée pour Vercel
+def handler(request, context):
+    """Handler pour Vercel serverless functions"""
+    return ChatbotHandler()
 
-@app.route('/api/info', methods=['GET'])
-def info():
-    """Endpoint d'informations sur le chatbot"""
-    return jsonify({
-        'name': f"{PORTFOLIO_DATA['name']} Chatbot",
-        'version': '2.0.0',
-        'description': 'Chatbot IA ultra-optimisé pour portfolio',
-        'features': [
-            'Réponses sur le profil professionnel',
-            'Informations sur les compétences',
-            'Détails des projets',
-            'Contact et formation',
-            'Ultra-minimal pour Vercel'
-        ],
-        'optimized_for_vercel': True,
-        'no_external_dependencies': True
-    })
-
-@app.route('/api/profile', methods=['GET'])
-def profile():
-    """Endpoint pour obtenir le profil complet"""
-    return jsonify({
-        'personal_info': {
-            'name': PORTFOLIO_DATA['name'],
-            'title': PORTFOLIO_DATA['title'],
-            'specialization': PORTFOLIO_DATA['specialization'],
-            'email': PORTFOLIO_DATA['email'],
-            'github': PORTFOLIO_DATA['github'],
-            'location': PORTFOLIO_DATA['location']
-        },
-        'formation': PORTFOLIO_DATA['formation'],
-        'competences': PORTFOLIO_DATA['competences'],
-        'experience': PORTFOLIO_DATA['experience'],
-        'projets': PORTFOLIO_DATA['projets']
-    })
-
+# Pour les tests locaux
 if __name__ == '__main__':
-    app.run(debug=True) 
+    from http.server import HTTPServer
+    server = HTTPServer(('localhost', 8000), ChatbotHandler)
+    print("Serveur démarré sur http://localhost:8000")
+    server.serve_forever() 

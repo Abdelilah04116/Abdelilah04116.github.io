@@ -12,9 +12,10 @@ load_dotenv()
 # Importer l'application Flask
 from api import app
 
-# Variable pour Gunicorn
+# Variable pour Gunicorn (Render)
 application = app
 
+# Configuration pour Vercel
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port) 

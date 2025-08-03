@@ -20,35 +20,43 @@ class PortfolioChatbot:
         self._load_vectorstore()
 
     def _load_vectorstore(self):
-        embeddings = GoogleGenerativeAIEmbeddings(
-            model="models/embedding-001",
-            google_api_key=self.api_key
-        )
-
-        index_path = os.path.join(self.vectorstore_path, "index.faiss")
-
-        # Vérifie si l'index existe
-        if os.path.exists(index_path):
-            print("[INFO] FAISS index found. Loading it...")
-            self.vectorstore = FAISS.load_local(
-                self.vectorstore_path,
-                embeddings,
-                allow_dangerous_deserialization=True
+        try:
+            embeddings = GoogleGenerativeAIEmbeddings(
+                model="models/embedding-001",
+                google_api_key=self.api_key
             )
-        else:
-            print("[WARNING] FAISS index not found. Rebuilding the vectorstore...")
-            pipeline = RAGPipeline(google_api_key=self.api_key)
-            pipeline.build_vectorstore()
 
-            # Recharge après génération
+            index_path = os.path.join(self.vectorstore_path, "index.faiss")
+
+            # Vérifie si l'index existe
             if os.path.exists(index_path):
+                print("[INFO] FAISS index found. Loading it...")
                 self.vectorstore = FAISS.load_local(
                     self.vectorstore_path,
                     embeddings,
                     allow_dangerous_deserialization=True
                 )
             else:
-                raise RuntimeError("Failed to create FAISS index. Ensure your pipeline works correctly.")
+                print("[WARNING] FAISS index not found. Rebuilding the vectorstore...")
+                pipeline = RAGPipeline(google_api_key=self.api_key)
+                pipeline.build_vectorstore()
+
+                # Recharge après génération
+                if os.path.exists(index_path):
+                    self.vectorstore = FAISS.load_local(
+                        self.vectorstore_path,
+                        embeddings,
+                        allow_dangerous_deserialization=True
+                    )
+                else:
+                    print("[ERROR] Failed to create FAISS index. Using fallback mode.")
+                    # Mode fallback sans vectorstore
+                    self.vectorstore = None
+                    return
+        except Exception as e:
+            print(f"[ERROR] Error loading vectorstore: {e}")
+            self.vectorstore = None
+            return
 
         self.llm = ChatGoogleGenerativeAI(
             model="gemini-2.0-flash",
@@ -56,10 +64,14 @@ class PortfolioChatbot:
             temperature=0.3
         )
 
-        self.qa_chain = RetrievalQA.from_chain_type(
-            llm=self.llm,
-            retriever=self.vectorstore.as_retriever()
-        )
+        # Initialiser la chaîne QA seulement si le vectorstore est disponible
+        if self.vectorstore is not None:
+            self.qa_chain = RetrievalQA.from_chain_type(
+                llm=self.llm,
+                retriever=self.vectorstore.as_retriever()
+            )
+        else:
+            self.qa_chain = None
 
     def get_answer(self, query: str):
         # Créer un prompt enrichi avec le contexte du portfolio
@@ -75,8 +87,15 @@ class PortfolioChatbot:
         """
         
         try:
-            result = self.qa_chain({"query": enhanced_query})
-            return result["result"], []
+            # Vérifier si la chaîne QA est disponible
+            if self.qa_chain is not None:
+                result = self.qa_chain({"query": enhanced_query})
+                return result["result"], []
+            else:
+                # Mode fallback : utiliser directement le LLM
+                print("[INFO] Using fallback mode without vectorstore")
+                response = self.llm.invoke(enhanced_query)
+                return response.content, []
         except Exception as e:
             print(f"Erreur lors de la génération de la réponse: {e}")
             return "Désolé, je n'ai pas pu traiter votre demande pour le moment. Pouvez-vous reformuler votre question ?", []

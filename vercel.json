@@ -19,10 +19,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "functions": {
-    "api/chat_simple.py": {
-      "maxDuration": 10
-    }
-  }
+  ]
 } 

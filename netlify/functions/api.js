@@ -1,8 +1,3 @@
-const { GoogleGenerativeAI } = require('@google/generativeai');
-
-// Configuration Gemini
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-
 // Contexte du portfolio
 const PORTFOLIO_CONTEXT = `
 Abdelilah Ourti - Ingénieur en IA
@@ -17,7 +12,10 @@ async function generateResponse(question) {
   try {
     console.log(`🤖 Génération de réponse pour: ${question}`);
     
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+    const apiKey = process.env.GOOGLE_API_KEY;
+    if (!apiKey) {
+      throw new Error('GOOGLE_API_KEY non configurée');
+    }
     
     const prompt = `
     Tu es l'assistant IA d'Abdelilah Ourti, ingénieur en IA.
@@ -29,9 +27,28 @@ async function generateResponse(question) {
     Réponds de manière professionnelle en français, sauf si la question est en anglais.
     `;
     
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: prompt
+          }]
+        }]
+      })
+    });
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Erreur API: ${response.status} - ${errorText}`);
+    }
+    
+    const data = await response.json();
+    const text = data.candidates[0].content.parts[0].text;
     
     console.log(`✅ Réponse générée: ${text.substring(0, 50)}...`);
     return text;

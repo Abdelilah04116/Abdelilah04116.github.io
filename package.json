@@ -8,9 +8,7 @@
     "build": "echo 'Build completed'",
     "test": "echo 'No tests specified'"
   },
-  "dependencies": {
-    "@google/generativeai": "^0.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "netlify-cli": "^17.0.0"
   },

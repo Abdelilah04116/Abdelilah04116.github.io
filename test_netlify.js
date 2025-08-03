@@ -3,11 +3,6 @@
  * Script de test pour l'API Netlify
  */
 
-const { GoogleGenerativeAI } = require('@google/generativeai');
-
-// Configuration Gemini
-const genAI = new GoogleGenerativeAI('AIzaSyAESAzLncervSl2KLwRhMwy2Yu5151lG5Y');
-
 // Contexte du portfolio
 const PORTFOLIO_CONTEXT = `
 Abdelilah Ourti - Ingénieur en IA
@@ -23,9 +18,9 @@ async function testAPI() {
   console.log('=' * 50);
   
   try {
-    console.log('✅ Configuration Gemini...');
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+    console.log('✅ Configuration API...');
     
+    const apiKey = 'AIzaSyAESAzLncervSl2KLwRhMwy2Yu5151lG5Y';
     const testQuestion = "Qui es-tu ?";
     console.log(`📝 Question de test: ${testQuestion}`);
     
@@ -39,9 +34,27 @@ async function testAPI() {
     Réponds de manière professionnelle en français, sauf si la question est en anglais.
     `;
     
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: prompt
+          }]
+        }]
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Erreur API: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    const text = data.candidates[0].content.parts[0].text;
     
     console.log(`🤖 Réponse: ${text.substring(0, 100)}...`);
     console.log('✅ Test réussi!');

@@ -21,10 +21,5 @@
   ],
   "env": {
     "PYTHONPATH": "."
-  },
-  "functions": {
-    "wsgi.py": {
-      "maxDuration": 10
-    }
   }
 } 

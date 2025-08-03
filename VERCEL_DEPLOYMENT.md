@@ -39,6 +39,8 @@ Ce guide vous aide à déployer votre portfolio avec chatbot sur Vercel.
    - **Output Directory** : (laisser vide)
    - **Install Command** : `pip install -r requirements-vercel.txt`
 
+**⚠️ Important** : Utilisez la version simplifiée du chatbot pour Vercel (sans LangChain/FAISS)
+
 #### Option B : Via Vercel CLI
 
 ```bash
@@ -54,10 +56,15 @@ vercel
 
 1. **Tester l'API** :
    ```bash
-   python test_vercel_api.py
+   python test_vercel_simple.py
    ```
 
 2. **Vérifier les logs** dans le dashboard Vercel
+
+3. **Tester en local** :
+   ```bash
+   python wsgi.py
+   ```
 
 ## 🔧 Configuration Avancée
 
@@ -65,12 +72,13 @@ vercel
 
 1. **Limites de Vercel** :
    - **Timeout** : 10 secondes pour les fonctions serverless
-   - **Taille** : 50MB maximum par fonction
+   - **Taille** : 250MB maximum par fonction (optimisé à ~10MB)
    - **Mémoire** : 1024MB maximum
 
-2. **Gestion du Vectorstore** :
-   - Le vectorstore sera recréé à chaque déploiement
-   - Utilisez le mode fallback si nécessaire
+2. **Version Simplifiée** :
+   - Utilise `google-generativeai` directement (pas de LangChain/FAISS)
+   - Réduit drastiquement la taille du déploiement
+   - Fonctionne avec le contexte du portfolio intégré
 
 ### Variables d'Environnement Recommandées
 

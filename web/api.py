@@ -25,9 +25,10 @@ try:
         logger.error("GOOGLE_API_KEY non trouvée dans les variables d'environnement")
         chatbot = None
     else:
-        from chatbot.chatbot_logic import PortfolioChatbot
-        chatbot = PortfolioChatbot(google_api_key=api_key)
-        logger.info("Chatbot initialisé avec succès")
+        # Utiliser la version simplifiée pour Vercel
+        from chatbot.chatbot_logic_simple import PortfolioChatbotSimple
+        chatbot = PortfolioChatbotSimple(google_api_key=api_key)
+        logger.info("Chatbot simplifié initialisé avec succès")
 except Exception as e:
     logger.error(f"Erreur lors de l'initialisation du chatbot: {e}")
     chatbot = None

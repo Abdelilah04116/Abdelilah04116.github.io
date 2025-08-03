@@ -35,4 +35,25 @@ test_*.py
 !README.md
 
 # Fichiers Render (garder pour compatibilité)
-Procfile 
+Procfile
+
+# Fichiers volumineux à exclure pour Vercel
+chatbot/vectorstore/
+chatbot/docs/
+*.pdf
+*.zip
+*.tar.gz
+
+# Fichiers de développement ML
+*.pkl
+*.joblib
+*.h5
+*.pth
+*.pt
+*.onnx
+
+# Fichiers de cache
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/ 

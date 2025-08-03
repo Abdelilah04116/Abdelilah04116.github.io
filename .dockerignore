@@ -1,0 +1,48 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+!README.md
+
+# Tests
+test_*.py
+*_test.py
+
+# Logs
+*.log
+
+# Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+.venv
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Railway files (not needed for Fly.io)
+railway.json
+railway_app.py
+requirements-railway.txt
+Procfile-railway
+
+# Netlify files (not needed for Fly.io)
+netlify.toml
+netlify/
+package.json
+
+# Render files (keep for compatibility)
+# Procfile
+# wsgi.py
+# requirements.txt 

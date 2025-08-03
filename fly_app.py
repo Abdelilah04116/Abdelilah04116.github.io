@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Application Flask pour Railway - Portfolio avec Chatbot IA
+Application Flask pour Fly.io - Portfolio avec Chatbot IA
 """
 
-from flask import Flask, request, jsonify, render_template_string
+from flask import Flask, request, jsonify, send_from_directory
 import os
 import json
 import requests
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 # Configuration
-PORT = int(os.environ.get('PORT', 5000))
+PORT = int(os.environ.get('PORT', 8080))
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 # Contexte du portfolio
@@ -73,7 +73,7 @@ EXPÉRIENCE PROFESSIONNELLE :
 CONTACT ET RÉSEAUX :
 - LinkedIn : Abdelilah Ourti
 - GitHub : Abdelilah04116
-- Portfolio : https://abdelilah-ourti.railway.app
+- Portfolio : https://portfolio-chatbot.fly.dev
 - Disponible pour : Collaborations, projets, opportunités
 
 INSTRUCTIONS :
@@ -175,7 +175,7 @@ def home():
         with open('index.html', 'r', encoding='utf-8') as f:
             html_content = f.read()
         
-        # Modifier l'URL de l'API pour Railway
+        # Modifier l'URL de l'API pour Fly.io
         html_content = html_content.replace(
             '/api/chat',
             '/api/chat'
@@ -223,23 +223,24 @@ def chat():
 
 @app.route('/health')
 def health():
-    """Endpoint de santé pour Railway"""
+    """Endpoint de santé pour Fly.io"""
     return jsonify({
         'status': 'healthy',
         'timestamp': datetime.now().isoformat(),
-        'api_key_configured': bool(GOOGLE_API_KEY)
+        'api_key_configured': bool(GOOGLE_API_KEY),
+        'platform': 'fly.io'
     })
 
 @app.route('/assets/<path:filename>')
 def assets(filename):
     """Servir les assets statiques"""
     try:
-        return app.send_from_directory('assets', filename)
+        return send_from_directory('assets', filename)
     except Exception as e:
         logger.error(f"Erreur asset {filename}: {e}")
         return f"Asset non trouvé: {filename}", 404
 
 if __name__ == '__main__':
-    logger.info(f"🚀 Démarrage de l'application sur le port {PORT}")
+    logger.info(f"🚀 Démarrage de l'application Fly.io sur le port {PORT}")
     logger.info(f"🔑 Clé API configurée: {bool(GOOGLE_API_KEY)}")
     app.run(host='0.0.0.0', port=PORT, debug=False) 

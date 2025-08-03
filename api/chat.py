@@ -6,13 +6,16 @@ import google.generativeai as genai
 def setup_gemini():
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
+        print("❌ GOOGLE_API_KEY non trouvée")
         return None
     
     try:
         genai.configure(api_key=api_key)
-        return genai.GenerativeModel('gemini-2.0-flash-exp')
+        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        print("✅ Gemini configuré avec succès")
+        return model
     except Exception as e:
-        print(f"Erreur Gemini: {e}")
+        print(f"❌ Erreur Gemini: {e}")
         return None
 
 # Contexte du portfolio (version ultra-simplifiée)
@@ -27,6 +30,8 @@ Contact: LinkedIn Abdelilah Ourti, GitHub Abdelilah04116
 
 def generate_response(question):
     """Génère une réponse avec Gemini"""
+    print(f"🤖 Génération de réponse pour: {question}")
+    
     model = setup_gemini()
     if not model:
         return "Désolé, le service n'est pas disponible pour le moment."
@@ -43,12 +48,16 @@ def generate_response(question):
     
     try:
         response = model.generate_content(prompt)
+        print(f"✅ Réponse générée: {response.text[:50]}...")
         return response.text
     except Exception as e:
+        print(f"❌ Erreur génération: {e}")
         return f"Désolé, je n'ai pas pu traiter votre demande: {str(e)}"
 
 # Point d'entrée Vercel Functions (version garantie)
 def handler(request, response):
+    print(f"🚀 Handler appelé avec méthode: {request.method}")
+    
     # CORS headers
     response.headers['Content-Type'] = 'application/json'
     response.headers['Access-Control-Allow-Origin'] = '*'
@@ -57,6 +66,7 @@ def handler(request, response):
     
     # OPTIONS request (preflight)
     if request.method == 'OPTIONS':
+        print("✅ OPTIONS request traitée")
         response.status = 200
         response.body = ''
         return
@@ -64,22 +74,32 @@ def handler(request, response):
     # POST request
     if request.method == 'POST':
         try:
+            print(f"📝 Corps de la requête: {request.body}")
+            
             # Lire le corps de la requête
             data = json.loads(request.body)
             message = data.get('message', '')
             
             if not message:
+                print("❌ Aucun message fourni")
                 response.status = 400
                 response.body = json.dumps({'error': 'Aucun message fourni'})
                 return
             
+            print(f"📨 Message reçu: {message}")
+            
             # Générer la réponse
             response_text = generate_response(message)
-            response.body = json.dumps({'response': response_text})
+            response_data = {'response': response_text}
+            
+            print(f"📤 Envoi de la réponse: {response_text[:50]}...")
+            response.body = json.dumps(response_data)
             
         except Exception as e:
+            print(f"❌ Erreur dans le handler: {e}")
             response.status = 500
             response.body = json.dumps({'error': str(e)})
     else:
+        print(f"❌ Méthode non autorisée: {request.method}")
         response.status = 405
         response.body = json.dumps({'error': 'Méthode non autorisée'}) 

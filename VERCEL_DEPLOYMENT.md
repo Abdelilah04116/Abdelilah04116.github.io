@@ -1,6 +1,12 @@
-# Guide de Déploiement Vercel
+# Guide de Déploiement Vercel - Architecture Optimisée
 
-Ce guide vous aide à déployer votre portfolio avec chatbot sur Vercel.
+Ce guide vous aide à déployer votre portfolio avec chatbot sur Vercel en utilisant une architecture serverless optimisée.
+
+## 🏗️ Architecture
+
+- **Frontend** : `index.html` (statique)
+- **API** : `api/chat.py` (Vercel Functions)
+- **Dépendances** : `api/requirements.txt` (minimales)
 
 ## 🚀 Étapes de Déploiement
 
@@ -12,9 +18,9 @@ Ce guide vous aide à déployer votre portfolio avec chatbot sur Vercel.
    ```
 
 2. **Vérifier les fichiers de configuration** :
-   - ✅ `vercel.json` - Configuration Vercel
-   - ✅ `requirements-vercel.txt` - Dépendances Python
-   - ✅ `wsgi.py` - Point d'entrée de l'application
+   - ✅ `vercel.json` - Configuration Vercel Functions
+   - ✅ `api/requirements.txt` - Dépendances minimales
+   - ✅ `api/chat.py` - API serverless
    - ✅ `.vercelignore` - Fichiers à ignorer
 
 ### 2. Configuration des Variables d'Environnement
@@ -35,11 +41,11 @@ Ce guide vous aide à déployer votre portfolio avec chatbot sur Vercel.
 2. **Connecter votre repo GitHub à Vercel**
 3. **Configurer le projet** :
    - **Framework Preset** : Other
-   - **Build Command** : `pip install -r requirements-vercel.txt`
+   - **Build Command** : (laisser vide - automatique)
    - **Output Directory** : (laisser vide)
-   - **Install Command** : `pip install -r requirements-vercel.txt`
+   - **Install Command** : (laisser vide - automatique)
 
-**⚠️ Important** : Utilisez la version simplifiée du chatbot pour Vercel (sans LangChain/FAISS)
+**✅ Avantage** : Architecture serverless optimisée (~5MB max)
 
 #### Option B : Via Vercel CLI
 
@@ -56,14 +62,14 @@ vercel
 
 1. **Tester l'API** :
    ```bash
-   python test_vercel_simple.py
+   python test_vercel_api.py
    ```
 
 2. **Vérifier les logs** dans le dashboard Vercel
 
 3. **Tester en local** :
    ```bash
-   python wsgi.py
+   python -c "from api.chat import generate_response; print(generate_response('Qui es-tu ?'))"
    ```
 
 ## 🔧 Configuration Avancée
@@ -72,13 +78,14 @@ vercel
 
 1. **Limites de Vercel** :
    - **Timeout** : 10 secondes pour les fonctions serverless
-   - **Taille** : 250MB maximum par fonction (optimisé à ~10MB)
+   - **Taille** : 250MB maximum par fonction (optimisé à ~5MB)
    - **Mémoire** : 1024MB maximum
 
-2. **Version Simplifiée** :
-   - Utilise `google-generativeai` directement (pas de LangChain/FAISS)
-   - Réduit drastiquement la taille du déploiement
-   - Fonctionne avec le contexte du portfolio intégré
+2. **Architecture Serverless** :
+   - API séparée en Vercel Functions
+   - Dépendances minimales (seulement `google-generativeai`)
+   - Contexte du portfolio intégré dans le code
+   - Pas de Flask ni de serveur web
 
 ### Variables d'Environnement Recommandées
 

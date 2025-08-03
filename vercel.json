@@ -1,25 +1,18 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "10mb"
-      }
+  "functions": {
+    "api/chat.py": {
+      "runtime": "python3.9"
     }
-  ],
+  },
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "wsgi.py"
+      "src": "/api/chat",
+      "dest": "/api/chat.py"
     },
     {
       "src": "/(.*)",
-      "dest": "wsgi.py"
+      "dest": "/index.html"
     }
-  ],
-  "env": {
-    "PYTHONPATH": "."
-  }
+  ]
 } 

@@ -18,8 +18,8 @@ Ce guide vous aide à déployer votre portfolio avec chatbot sur Vercel en utili
    ```
 
 2. **Vérifier les fichiers de configuration** :
-   - ✅ `vercel.json` - Configuration Vercel Functions
-   - ✅ `api/requirements.txt` - Dépendances minimales
+   - ✅ `vercel.json` - Configuration Vercel avec builds
+   - ✅ `requirements.txt` - Dépendances minimales
    - ✅ `api/chat.py` - API serverless
    - ✅ `.vercelignore` - Fichiers à ignorer
 
@@ -45,7 +45,7 @@ Ce guide vous aide à déployer votre portfolio avec chatbot sur Vercel en utili
    - **Output Directory** : (laisser vide)
    - **Install Command** : (laisser vide - automatique)
 
-**✅ Avantage** : Architecture serverless optimisée (~5MB max)
+**✅ Avantage** : Architecture optimisée (~5MB max) avec builds Vercel
 
 #### Option B : Via Vercel CLI
 

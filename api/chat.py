@@ -77,7 +77,7 @@ def generate_response(question):
     except Exception as e:
         return f"Désolé, je n'ai pas pu traiter votre demande: {str(e)}"
 
-# Point d'entrée pour Vercel Functions
+# Point d'entrée pour Vercel
 def handler(request, response):
     # Configuration CORS
     response.headers['Content-Type'] = 'application/json'

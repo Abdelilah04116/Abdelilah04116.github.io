@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "functions": {
-    "api/chat.py": {
-      "runtime": "python3.9"
+  "builds": [
+    {
+      "src": "api/chat.py",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/chat",

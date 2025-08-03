@@ -1,7 +1,7 @@
 {
   "name": "portfolio-chatbot",
   "version": "1.0.0",
-  "description": "Portfolio avec assistant IA déployé sur Netlify",
+  "description": "Portfolio avec assistant IA gratuit déployé sur Netlify",
   "main": "index.html",
   "scripts": {
     "dev": "netlify dev",
@@ -16,7 +16,8 @@
     "portfolio",
     "chatbot",
     "ai",
-    "netlify"
+    "netlify",
+    "gratuit"
   ],
   "author": "Abdelilah Ourti",
   "license": "MIT"

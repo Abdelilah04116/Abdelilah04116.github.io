@@ -3,7 +3,7 @@
  * Script de test pour l'API Netlify
  */
 
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { GoogleGenerativeAI } = require('@google/generativeai');
 
 // Configuration Gemini
 const genAI = new GoogleGenerativeAI('AIzaSyAESAzLncervSl2KLwRhMwy2Yu5151lG5Y');

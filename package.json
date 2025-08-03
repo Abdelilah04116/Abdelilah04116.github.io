@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-chatbot",
+  "version": "1.0.0",
+  "description": "Portfolio avec assistant IA déployé sur Netlify",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Build completed'",
+    "test": "echo 'No tests specified'"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.3.2"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "keywords": [
+    "portfolio",
+    "chatbot",
+    "ai",
+    "netlify"
+  ],
+  "author": "Abdelilah Ourti",
+  "license": "MIT"
+} 

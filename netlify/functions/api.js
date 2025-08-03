@@ -3,45 +3,66 @@ async function generateResponse(question) {
   try {
     console.log(`🤖 Génération de réponse pour: ${question}`);
     
-    const lowerQuestion = question.toLowerCase();
+    const lowerQuestion = question.toLowerCase().trim();
+    console.log(`🔍 Question analysée: "${lowerQuestion}"`);
     
-    // Système de réponses intelligentes pré-définies
-    if (lowerQuestion.includes('qui es-tu') || lowerQuestion.includes('présente') || lowerQuestion.includes('qui êtes-vous')) {
+    // Système de réponses intelligentes pré-définies avec détection améliorée
+    if (lowerQuestion.includes('qui') && (lowerQuestion.includes('es-tu') || lowerQuestion.includes('êtes-vous') || lowerQuestion.includes('tu'))) {
+      console.log('✅ Détection: Question sur l\'identité');
       return "Je suis l'assistant IA d'Abdelilah Ourti, ingénieur en IA passionné par le Deep Learning et la Computer Vision. Je peux vous parler de mes projets, compétences et expériences. Que souhaitez-vous savoir ?";
     }
     
-    if (lowerQuestion.includes('compétence') || lowerQuestion.includes('skill') || lowerQuestion.includes('technologie')) {
+    if (lowerQuestion.includes('compétence') || lowerQuestion.includes('skill') || lowerQuestion.includes('technologie') || lowerQuestion.includes('savoir-faire')) {
+      console.log('✅ Détection: Question sur les compétences');
       return "Mes compétences principales incluent : Python, TensorFlow, PyTorch, OpenCV, AWS, Docker, Machine Learning, Deep Learning, Computer Vision, et le développement d'applications IA. Je suis également familier avec les frameworks web et les bases de données.";
     }
     
-    if (lowerQuestion.includes('projet') || lowerQuestion.includes('travail') || lowerQuestion.includes('réalisation')) {
+    if (lowerQuestion.includes('projet') || lowerQuestion.includes('travail') || lowerQuestion.includes('réalisation') || lowerQuestion.includes('développé')) {
+      console.log('✅ Détection: Question sur les projets');
       return "J'ai développé plusieurs projets passionnants : 1) Système de Reconnaissance de Fleurs en temps réel, 2) Analyse de Sentiments avec NLP, 3) Chatbot ENIAD intelligent, 4) Applications Computer Vision pour l'industrie. Chaque projet démontre mes compétences en IA et développement.";
     }
     
-    if (lowerQuestion.includes('formation') || lowerQuestion.includes('étude') || lowerQuestion.includes('diplôme')) {
+    if (lowerQuestion.includes('formation') || lowerQuestion.includes('étude') || lowerQuestion.includes('diplôme') || lowerQuestion.includes('master')) {
+      console.log('✅ Détection: Question sur la formation');
       return "J'ai un Master en IA et Deep Learning, avec une formation solide en mathématiques, algorithmes et développement. J'ai également suivi des formations spécialisées en Computer Vision et Machine Learning.";
     }
     
-    if (lowerQuestion.includes('contact') || lowerQuestion.includes('joindre') || lowerQuestion.includes('email')) {
+    if (lowerQuestion.includes('contact') || lowerQuestion.includes('joindre') || lowerQuestion.includes('email') || lowerQuestion.includes('contacter')) {
+      console.log('✅ Détection: Question sur le contact');
       return "Vous pouvez me contacter via LinkedIn (Abdelilah Ourti) ou GitHub (Abdelilah04116). Je suis toujours ouvert aux opportunités de collaboration et aux projets intéressants en IA.";
     }
     
-    if (lowerQuestion.includes('expérience') || lowerQuestion.includes('travail') || lowerQuestion.includes('emploi')) {
+    if (lowerQuestion.includes('expérience') || lowerQuestion.includes('emploi') || lowerQuestion.includes('carrière')) {
+      console.log('✅ Détection: Question sur l\'expérience');
       return "J'ai travaillé comme développeur IA sur divers projets, incluant des applications Computer Vision, des systèmes de reconnaissance d'images, et des chatbots intelligents. J'ai également une expérience en freelance sur des projets innovants.";
     }
     
-    if (lowerQuestion.includes('cv') || lowerQuestion.includes('curriculum') || lowerQuestion.includes('résumé')) {
+    if (lowerQuestion.includes('cv') || lowerQuestion.includes('curriculum') || lowerQuestion.includes('résumé') || lowerQuestion.includes('parcours')) {
+      console.log('✅ Détection: Question sur le CV');
       return "Je suis Abdelilah Ourti, ingénieur en IA avec un Master en Deep Learning. Spécialisé en Computer Vision, Machine Learning et développement d'applications intelligentes. Expérience en projets freelance et développement d'outils IA innovants.";
     }
     
-    if (lowerQuestion.includes('github') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('code')) {
+    if (lowerQuestion.includes('github') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('code') || lowerQuestion.includes('repository')) {
+      console.log('✅ Détection: Question sur GitHub');
       return "Vous pouvez voir mes projets sur GitHub (Abdelilah04116) où je partage mes travaux en IA, Computer Vision et Machine Learning. Mon portfolio présente mes réalisations et compétences techniques.";
     }
     
-    if (lowerQuestion.includes('linkedin') || lowerQuestion.includes('réseau') || lowerQuestion.includes('professionnel')) {
+    if (lowerQuestion.includes('linkedin') || lowerQuestion.includes('réseau') || lowerQuestion.includes('professionnel') || lowerQuestion.includes('social')) {
+      console.log('✅ Détection: Question sur LinkedIn');
       return "Mon profil LinkedIn (Abdelilah Ourti) présente mon parcours professionnel, mes compétences en IA et mes projets. N'hésitez pas à me contacter pour des opportunités de collaboration.";
     }
     
+    if (lowerQuestion.includes('bonjour') || lowerQuestion.includes('salut') || lowerQuestion.includes('hello')) {
+      console.log('✅ Détection: Salutation');
+      return "Bonjour ! Je suis l'assistant IA d'Abdelilah Ourti. Je peux vous parler de mes compétences en IA, mes projets, ma formation ou mon expérience. Que souhaitez-vous savoir ?";
+    }
+    
+    if (lowerQuestion.includes('python') || lowerQuestion.includes('tensorflow') || lowerQuestion.includes('pytorch') || lowerQuestion.includes('opencv')) {
+      console.log('✅ Détection: Question sur les technologies');
+      return "Je maîtrise Python, TensorFlow, PyTorch, OpenCV, AWS, Docker et bien d'autres technologies. Ces outils me permettent de développer des applications IA avancées et des systèmes de Computer Vision.";
+    }
+    
+    console.log('❌ Aucune détection spécifique, réponse par défaut');
     // Réponse par défaut intelligente
     return "Je suis l'assistant IA d'Abdelilah Ourti. Je peux vous parler de mes compétences en IA, mes projets, ma formation ou mon expérience. Que souhaitez-vous savoir spécifiquement ?";
     

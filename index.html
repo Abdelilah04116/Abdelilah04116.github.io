@@ -2079,7 +2079,8 @@
                 <div class="relative">
                     <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8 lg:mb-12 overflow-x-auto sm:overflow-x-visible pb-6 sm:pb-0 hide-scrollbar">
                         <div v-for="(project, index) in highlightedProjects" 
-                             class="project-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 w-[85vw] sm:w-auto flex-shrink-0">
+                             class="project-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 w-[85vw] sm:w-auto flex-shrink-0"
+                             @click="openProjectModal(project)">
                             <!-- Project Image with Overlay -->
                             <div class="relative overflow-hidden h-48 group">
                                 <img :src="project.imgUrl" :alt="project.title[currentLanguage]" 
@@ -2311,7 +2312,8 @@
                         <div class="testimonials-track flex gap-2 sm:gap-4 py-1" style="scroll-behavior: smooth;">
                             <div v-for="(testimonial, index) in testimonialsItems" 
                                  :key="index"
-                                 class="testimonial-card min-w-[280px] sm:w-[350px] flex-shrink-0">
+                                 class="testimonial-card min-w-[280px] sm:w-[350px] flex-shrink-0"
+                                 @click="openTestimonialModal(testimonial)">
                                 <div class="bg-[#1e2937] border border-gray-700 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:border-[#3b82f6] h-full">
                                     <div class="p-4 sm:p-6 flex flex-col h-full">
                                         <!-- Card Content -->
@@ -2527,6 +2529,41 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
+
+        <!-- Modal Témoignage -->
+        <div v-if="showTestimonialModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60">
+          <div class="bg-white dark:bg-gray-800 rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative shadow-2xl animate-fade-in">
+            <button @click="closeTestimonialModal" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+              <i class="fas fa-times"></i>
+            </button>
+            <div class="p-6">
+              <div class="flex items-center gap-4 mb-4">
+                <img v-if="selectedTestimonial && selectedTestimonial.imgUrl" :src="selectedTestimonial.imgUrl" alt="author" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500" />
+                <div>
+                  <h4 class="text-lg font-bold text-gray-900 dark:text-white">{{ selectedTestimonial?.quoteAuthor[currentLanguage] }}</h4>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">{{ selectedTestimonial?.jobTitle[currentLanguage] }}</p>
+                  <div class="flex items-center text-xs text-gray-400 mt-1">
+                    <span>{{ selectedTestimonial?.relationship }}</span>
+                    <span class="mx-2">•</span>
+                    <span>{{ selectedTestimonial?.date }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <p class="text-gray-800 dark:text-gray-200 text-base leading-relaxed">"{{ selectedTestimonial?.quoteContent[currentLanguage] }}"</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700 mt-4">
+                <div class="flex text-yellow-400 text-xs">
+                  <i v-for="i in 5" :key="i" class="fas fa-star"></i>
+                </div>
+                <div class="text-blue-500 text-xs font-medium flex items-center">
+                  <i class="fas fa-check-circle mr-1"></i>
+                  {{ currentLanguage === 'en' ? 'Verified' : 'Vérifié' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 
     <script>
@@ -2642,7 +2679,7 @@
                     },
                     "desc": {
                         "en": "Developed an advanced multi-agent system for dynamic control of an intelligent web interface. Integrated specialized agents to analyze user queries, automate complex interactions, and coordinate diverse services through NLP, voice, and computation modules.",
-                        "fr": "Développement d’un système multi-agent avancé pour le pilotage dynamique d’une interface web intelligente. Intégration d’agents spécialisés capables d’analyser les requêtes utilisateur, automatiser les interactions complexes et coordonner des services variés via des modules NLP, voix et calcul."
+                        "fr": "Développement d'un système multi-agent avancé pour le pilotage dynamique d'une interface web intelligente. Intégration d'agents spécialisés capables d'analyser les requêtes utilisateur, automatiser les interactions complexes et coordonner des services variés via des modules NLP, voix et calcul."
                     },
                     "showDetails": false,
                     "projects": [
@@ -2653,7 +2690,7 @@
                             },
                             "description": {
                                 "en": "Developed an advanced multi-agent system to orchestrate a smart web interface. Integrated task-specialized agents capable of analyzing user queries, automating complex workflows, and coordinating services through NLP, speech, and computation modules.",
-                                "fr": "Développement d’un système multi-agent avancé pour le pilotage d’une interface web intelligente. Intégration d’agents spécialisés capables d’analyser les requêtes utilisateur, d’automatiser des flux complexes et de coordonner des services via des modules NLP, vocaux et de calcul."
+                                "fr": "Développement d'un système multi-agent avancé pour le pilotage d'une interface web intelligente. Intégration d'agents spécialisés capables d'analyser les requêtes utilisateur, d'automatiser des flux complexes et de coordonner des services via des modules NLP, vocaux et de calcul."
                             }
                             }
                     ],
@@ -2851,7 +2888,7 @@
                         },
                         quoteContent: {
                             en: "I had the opportunity to work with Abdelilah Ourti, who stood out in my class for his dedication and teamwork. He consistently delivered high-quality work and demonstrated strong potential for future success. His positive attitude and collaborative spirit made him a valuable member of any team. I highly recommend him for any role or project requiring commitment, reliability, and a strong work ethic.",
-                            fr: "J’ai eu l’opportunité de travailler avec Abdelilah Ourti, qui s’est distingué dans ma classe par son dévouement et son esprit d’équipe. Il a régulièrement produit un travail de grande qualité et a démontré un fort potentiel pour réussir à l’avenir. Son attitude positive et son esprit collaboratif en ont fait un membre précieux de toute équipe. Je le recommande vivement pour tout poste ou projet nécessitant engagement, fiabilité et sérieux."
+                            fr: "J'ai eu l'opportunité de travailler avec Abdelilah Ourti, qui s'est distingué dans ma classe par son dévouement et son esprit d'équipe. Il a régulièrement produit un travail de grande qualité et a démontré un fort potentiel pour réussir à l'avenir. Son attitude positive et son esprit collaboratif en ont fait un membre précieux de toute équipe. Je le recommande vivement pour tout poste ou projet nécessitant engagement, fiabilité et sérieux."
                          },
                         relationship: 'First-degree connection',
                         date: 'April 21, 2025',
@@ -2868,8 +2905,8 @@
                             fr: 'Machine Learning Ph.D & Service Now Developer Senior chez Capgemini'
                         },
                         quoteContent: { 
-                            en: 'Abdelilah was one of the serious, dedicated and disciplined students. He continously showed his interest in AI related topics such as Machine Learning and Agentic AI. He was attentive in class and always worked on achieving the tasks/homework I assigned. Also, as being his supervisor in the Project of the end of the year, I noticed that he attended regularly our checkup meetings, and did excellent work with his team.I recommand Abdelillah for internships, job/research positions for his discipline and teamwork spirit.',
-                            fr: 'Abdelilah faisait partie des étudiants sérieux, assidus et disciplinés. Il a continuellement démontré son intérêt pour les sujets liés à l’intelligence artificielle, tels que le Machine Learning et l’Agentic AI. Il était attentif en cours et s’est toujours appliqué à réaliser les tâches et devoirs que je lui assignais. En tant que superviseur de son projet de fin d’année, j’ai également constaté qu’il assistait régulièrement à nos réunions de suivi et qu’il effectuait un excellent travail avec son équipe. Je recommande vivement Abdelilah pour des stages, ainsi que pour des postes académiques ou professionnels, en raison de sa discipline et de son esprit d’équipe'
+                            en: 'Abdelilah was one of the serious, dedicated and disciplined students. He continously showed his interest in AI related topics such as Machine Learning and Agentic AI. He was attentive in class and always worked on achieving the tasks/homework I assigned. Also, as being his supervisor in the Project of the end of the year, I noticed that he attended regularly our checkup meetings, and did excellent work with his team. I recommend Abdelillah for internships, job/research positions for his discipline and teamwork spirit.',
+                            fr: 'Abdelilah faisait partie des étudiants sérieux, assidus et disciplinés. Il a continuellement démontré son intérêt pour les sujets liés à l\'intelligence artificielle, tels que le Machine Learning et l\'Agentic AI. Il était attentif en cours et s\'est toujours appliqué à réaliser les tâches et devoirs que je lui assignais. En tant que superviseur de son projet de fin d\'année, j\'ai également constaté qu\'il assistait régulièrement à nos réunions de suivi et qu\'il effectuait un excellent travail avec son équipe. Je recommande vivement Abdelilah pour des stages, ainsi que pour des postes académiques ou professionnels, en raison de sa discipline et de son esprit d\'équipe.'
                         },
                         relationship: 'First-degree connection',
                         date: 'Septemper 11, 2025',
@@ -2887,7 +2924,7 @@
                         },
                         quoteContent: { 
                             en: 'Abdelilah is a disciplined and dedicated student. He consistently demonstrates a strong ability to excel in any environment and would be a valuable asset to any team or project.',
-                            fr: 'Abdelilah est un étudiant discipliné et dévoué. Il démontre constamment une grande capacité à exceller dans n’importe quel environnement et serait un atout précieux pour toute équipe ou projet.'
+                            fr: 'Abdelilah est un étudiant discipliné et dévoué. Il démontre constamment une grande capacité à exceller dans n\'importe quel environnement et serait un atout précieux pour toute équipe ou projet.'
                         },
                         relationship: 'First-degree connection',
                         date: 'aou 16, 2025',
@@ -2905,7 +2942,7 @@
                         },
                         quoteContent: { 
                             en: 'Abdelilah OURTI is an exemplary student in the Artificial Intelligence Engineering program at ENIAD, recognized for his academic rigor, passion for innovative technologies, and commitment to teamwork. He stands out for his ability to quickly grasp complex concepts, actively contribute to research projects, and demonstrate seriousness both in practical work and in associative initiatives. As his teacher, I have witnessed his professionalism, intellectual curiosity, and constant desire for self-improvement—qualities that make him a valuable asset for any organization seeking to recruit a promising young talent in the field of artificial intelligence.',
-                            fr: 'Abdelilah OURTI est un étudiant exemplaire de la filière d’ingénierie de l’intelligence artificielle à l’ENIAD, reconnu pour sa rigueur académique, sa passion pour les technologies innovantes et son engagement dans le travail d’équipe. Il se distingue par sa capacité à assimiler rapidement des concepts complexes, à contribuer activement à des projets de recherche, et par son sérieux tant lors des travaux pratiques que dans les initiatives associatives. En tant qu’enseignant, j’ai pu constater son professionnalisme, sa curiosité intellectuelle et son désir constant de se perfectionner, qualités qui font de lui une valeur sûre pour toute organisation souhaitant recruter un jeune talent prometteur dans le domaine de l’intelligence artificielle.'
+                            fr: 'Abdelilah OURTI est un étudiant exemplaire de la filière d\'ingénierie de l\'intelligence artificielle à l\'ENIAD, reconnu pour sa rigueur académique, sa passion pour les technologies innovantes et son engagement dans le travail d\'équipe. Il se distingue par sa capacité à assimiler rapidement des concepts complexes, à contribuer activement à des projets de recherche, et par son sérieux tant lors des travaux pratiques que dans les initiatives associatives. En tant qu\'enseignant, j\'ai pu constater son professionnalisme, sa curiosité intellectuelle et son désir constant de se perfectionner, qualités qui font de lui une valeur sûre pour toute organisation souhaitant recruter un jeune talent prometteur dans le domaine de l\'intelligence artificielle.'
                         },
                         relationship: 'First-degree connection',
                         date: 'aou 16, 2025',
@@ -3080,7 +3117,7 @@
                         url: 'https://github.com/Abdelilah04116/RAG_Project',
                         description: {
                             en: 'This project implements a Retrieval-Augmented Generation (RAG) approach using a local LLM through Ollama, featuring a complete data processing pipeline, embedding generation, and contextual querying. The REST API developed with FastAPI enables dynamic interaction with the model, delivering accurate and context-aware responses based on pre-indexed documents.',
-                            fr: 'Ce projet met en œuvre une approche RAG (Retrieval-Augmented Generation) avec un LLM local via Ollama, intégrant un pipeline complet de traitement de données, génération d’embeddings et interrogation contextuelle. L’API REST développée avec FastAPI permet d’interagir dynamiquement avec le modèle, offrant des réponses précises et contextualisées à partir de documents préalablement indexés.'
+                            fr: 'Ce projet met en œuvre une approche RAG (Retrieval-Augmented Generation) avec un LLM local via Ollama, intégrant un pipeline complet de traitement de données, génération d\'embeddings et interrogation contextuelle. L\'API REST développée avec FastAPI permet d\'interagir dynamiquement avec le modèle, offrant des réponses précises et contextualisées à partir de documents préalablement indexés.'
                         },
                         tags: ['CrewAI', 'RAG', 'Vector Databases', 'LangChain', 'LLMs', 'AI Automation']
                     },
@@ -3107,7 +3144,7 @@
                     {
                         title: { 
                             en: 'Sentiment Analysis Tool at Commonshare',
-                            fr: 'Outil d\'Analyse de Sentiments au scien de Commonshare'
+                            fr: 'Outil d\'Analyse de Sentiments au sein de Commonshare'
                         },
                         imgUrl: 'assets/images/Sentiment Analysis.png',
                         url: 'https://github.com/Abdelilah04116/CSh',
@@ -3165,7 +3202,9 @@
                     }*/
                 ],
                 currentLanguage: 'en',
-                currentSlide: 0
+                currentSlide: 0,
+                showTestimonialModal: false,
+                selectedTestimonial: null
             },
             computed: {
                 filteredPortfolioItems() {
@@ -3292,6 +3331,16 @@
                     const totalSlides = Math.ceil(this.testimonialsItems.length / 3);
                     this.currentSlide = (this.currentSlide - 1 + totalSlides) % totalSlides;
                     this.goToSlide(this.currentSlide);
+                },
+                openTestimonialModal(testimonial) {
+                  this.selectedTestimonial = testimonial;
+                  this.showTestimonialModal = true;
+                  document.body.style.overflow = 'hidden';
+                },
+                closeTestimonialModal() {
+                  this.showTestimonialModal = false;
+                  this.selectedTestimonial = null;
+                  document.body.style.overflow = '';
                 }
             },
             mounted() {
@@ -3432,7 +3481,7 @@
 
         // Remove the duplicate carouselMethods object and app.methods assignment
     </script>
-    <!-- Font Awesome pour l’icône -->
+    <!-- Font Awesome pour l'icône -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <style>
